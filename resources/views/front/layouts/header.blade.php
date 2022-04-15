@@ -45,20 +45,13 @@
 
             </div>
             @auth
-            <div class="nvLink">
-                <x-jet-nav-link href="{{ route('dashboard') }}" class="color-black navLinks" :active="request()->routeIs('dashboard')">
-                    {{ __('Mon profile') }}
-                </x-jet-nav-link>
-            </div>
+
         @else
         <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing in<i class="fa fa-arrow-right ms-3"></i></a>
-            
+        <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing up<i class="fa fa-arrow-right ms-3"></i></a>
             @if (Route::has('register'))
-            <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing up<i class="fa fa-arrow-right ms-3"></i></a>
+
             @endif
         @endauth
-
-
-            
         </div>
     </nav>
