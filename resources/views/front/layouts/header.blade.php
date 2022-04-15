@@ -38,14 +38,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href={{('/')}} class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+                <a href={{('about')}} class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
+                <a href={{('courses')}} class="nav-item nav-link {{ request()->is('courses') ? 'active' : '' }}">courses</a>
+                <a href={{('contact')}} class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
 
-                <a href={{url('/')}} class="nav-item nav-link active" >Home</a>
-                <a href={{url('about')}} class="nav-item nav-link">About</a>
-                <a href={{url('courses')}} class="nav-item nav-link">Courses</a>
-                <a href={{('contact')}}  class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing in<i class="fa fa-arrow-right ms-3"></i></a>
+            @auth
+            <div class="nvLink">
+                <x-jet-nav-link href="{{ route('dashboard') }}" class="color-black navLinks" :active="request()->routeIs('dashboard')">
+                    {{ __('Mon profile') }}
+                </x-jet-nav-link>
+            </div>
+        @else
+        <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing in<i class="fa fa-arrow-right ms-3"></i></a>
+            
+            @if (Route::has('register'))
             <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing up<i class="fa fa-arrow-right ms-3"></i></a>
+            @endif
+        @endauth
+
+
+            
         </div>
     </nav>
-    <!-- Navbar End -->
