@@ -44,14 +44,52 @@
                 <a href={{('contact')}} class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
 
             </div>
+        @if (Route::has('login'))
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <li class="nav-item dropdown pe-3">
 
-        @else
-        <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing in<i class="fa fa-arrow-right ms-3"></i></a>
-        <a href="" class="btn btn-primary py-4 px-lg-3 d-none d-lg-block">sing up<i class="fa fa-arrow-right ms-3"></i></a>
-            @if (Route::has('register'))
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                      <img src={{asset('fonts/img/logo.png')}}  class="rounded-circle">
+                      <span class=" dropdown-toggle ps-2">nouhaila</span>
+                    </a><!-- End Profile Iamge Icon -->
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                      <li class="dropdown-header">
+                        <h6>Kevin Anderson</h6>
+                        <span>prof</span>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
 
-            @endif
-        @endauth
+                      <li>
+                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                          <i class="bi bi-person"></i>
+                          <span>My Profile</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                          <i class="bi bi-box-arrow-right"></i>
+                          <span>Sign Out</span>
+                        </a>
+                      </li></ul>
+                  </li></ul>
+                </div>
+            @else
+            <a href="" class="btn btn-primary ">sing in</a>
+
+                @if (Route::has('register'))
+                <a href="" class="btn btn-primary ">sing up</a>
+                @endif
+            @endauth
+        </div>
+    @endif
+
         </div>
     </nav>
