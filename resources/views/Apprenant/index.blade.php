@@ -1,4 +1,4 @@
 @extends('layout')
 @section('content')
-<h5>Formateur</h5>
+<h5>Apprenant</h5>
 @endsection

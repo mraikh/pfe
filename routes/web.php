@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-
-
-
+use App\Http\Controllers\FormateurController;
+use App\Http\Controllers\ApprenantController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,19 +12,24 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/Route::get('/formateur', function () {
-    return view('formateur.index');
-});
+*/
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/contact', function () {
-    return view('contact');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+Route::prefix('formateur')->middleware(['auth:sanctum', 'verified', 'role:formateur'])->group(function () {
+
+    Route::get('/', [FormateurController::class, 'index'])->name('index');
+
 });
-Route::get('/courses', function () {
-    return view('courses');
+
+Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
+
+    Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
+
 });
-Route::get('/about', function () {
-    return view('about');
-});
+require __DIR__.'/auth.php';
