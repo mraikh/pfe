@@ -62,23 +62,25 @@
                       <li>
                         <hr class="dropdown-divider">
                       </li>
+                      <form method="GET" action="{{ route('formateur.profile') }}">
 
-                      <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                          <i class="bi bi-person"></i>
-                          <span>My Profile</span>
-                        </a>
-                      </li>
+                        <x-dropdown-link :href="route('formateur.profile')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('my profile') }}
+                </x-dropdown-link></form>
+
 
                       <li>
                         <hr class="dropdown-divider">
                       </li>
-                      <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                          <i class="bi bi-box-arrow-right"></i>
-                          <span>Sign Out</span>
-                        </a>
-                      </li></ul>
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link></form></ul>
                   </li></ul>
                 </div>
             @else
