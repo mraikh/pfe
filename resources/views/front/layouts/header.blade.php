@@ -31,7 +31,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5 " >
+        <a href={{url('/')}} class="navbar-brand d-flex align-items-center px-4 px-lg-5"><img src={{ asset('fonts/img/logo.png') }}>
             <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>k-acdemy</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -40,9 +40,9 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{('/')}}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
-                <a href="{{('about')}}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
-                <a href="{{('courses')}}" class="nav-item nav-link {{ request()->is('courses') ? 'active' : '' }}">courses</a>
-                <a href="{{('contact')}}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
+                <a href={{('about')}} class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
+                <a href={{('courses')}} class="nav-item nav-link {{ request()->is('courses') ? 'active' : '' }}">courses</a>
+                <a href={{('contact')}} class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
 
             </div>
 
@@ -67,7 +67,7 @@
                 <a href="" class="btn btn-primary">sing in</a>
 
                     @if (Route::has('register'))
-                    <a href="" class=btn-primary">sing up</a>
+                    <a href="" class="btn btn-primary">sing up</a>
                     @endif
                 @endauth
             </div>
