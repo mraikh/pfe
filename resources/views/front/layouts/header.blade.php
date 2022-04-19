@@ -14,14 +14,14 @@
 
 
     <!-- Libraries Stylesheet -->
-    <link href={{ asset('fonts/lib/animate/animate.min.css') }} rel="stylesheet">
-    <link href={{ asset('fonts/lib/owlcarousel/assets/owl.carousel.min.css') }} rel="stylesheet">
+    <link href={{{--    <link href={{ asset('fonts/lib/animate/animate.min.css') }} rel="stylesheet">--}}
+{{--    <link href={{ asset('fonts/lib/owlcarousel/assets/owl.carousel.min.css') }} rel="stylesheet">--}}
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href= {{asset('fonts/css/bootstrap.min.css')}} rel="stylesheet">
+{{--    <link href= {{asset('fonts/css/bootstrap.min.css')}} rel="stylesheet">--}}
 
     <!-- Template Stylesheet -->
-    <link href={{ asset('fonts/css/style.css') }} rel="stylesheet">
+{{--    <link href={{ asset('fonts/css/style.css') }} rel="stylesheet">--}}
     <link href={{ asset('css/app.css') }} rel="stylesheet">
 </head>
 
@@ -31,7 +31,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href={{url('/')}} class="navbar-brand d-flex align-items-center px-4 px-lg-5"><img src={{ asset('fonts/img/logo.png') }}>
+        <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5 " >
             <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>k-acdemy</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -40,13 +40,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{('/')}}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+<<<<<<< HEAD
                 <a href={{('about')}} class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
                 <a href={{('courses')}} class="nav-item nav-link {{ request()->is('courses') ? 'active' : '' }}">courses</a>
                 <a href={{('contact')}} class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
-
-            </div>
-            @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+=======
+                <a href="{{('about')}}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
+                <a href="{{('courses')}}" class="nav-item nav-link {{ request()->is('courses') ? 'active' : '' }}">courses</a>
+                <a href="{{('contact')}}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
+>>>>>>> cb6254c832f6fa44a29051f179d67fb28da2384d
+class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <li class="nav-item dropdown pe-3">
