@@ -20,7 +20,7 @@ class checkRole
     }
 
     if ($role == 'apprenant' && auth()->user()->role_id != 2) {
-        return redirect()->route('index');
+        return redirect()->route('formateur.index');
     }
 
         return $next($request);

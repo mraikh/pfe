@@ -10,4 +10,8 @@ class FormateurController extends Controller
 {
     return view("Formateur.index");
 }
+public function profile()
+{
+    return view("Formateur.profile");
+}
 }

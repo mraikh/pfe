@@ -21,9 +21,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Route::prefix('formateur')->middleware(['auth:sanctum', 'verified', 'role:formateur'])->group(function () {
+Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'verified', 'role:formateur'])->group(function () {
 
     Route::get('/', [FormateurController::class, 'index'])->name('index');
+    Route::get('/profile', [FormateurController::class, 'profile'])->name('profile');
 
 });
 
