@@ -14,14 +14,14 @@
 
 
     <!-- Libraries Stylesheet -->
-{{--    <link href={{ asset('fonts/lib/animate/animate.min.css') }} rel="stylesheet">--}}
-{{--    <link href={{ asset('fonts/lib/owlcarousel/assets/owl.carousel.min.css') }} rel="stylesheet">--}}
+    <link href={{ asset('fonts/lib/animate/animate.min.css') }} rel="stylesheet">
+    <link href={{ asset('fonts/lib/owlcarousel/assets/owl.carousel.min.css') }} rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-{{--    <link href= {{asset('fonts/css/bootstrap.min.css')}} rel="stylesheet">--}}
+    <link href= {{asset('fonts/css/bootstrap.min.css')}} rel="stylesheet">
 
     <!-- Template Stylesheet -->
-{{--    <link href={{ asset('fonts/css/style.css') }} rel="stylesheet">--}}
+    <link href={{ asset('fonts/css/style.css') }} rel="stylesheet">
     <link href={{ asset('css/app.css') }} rel="stylesheet">
 </head>
 
@@ -45,44 +45,23 @@
                 <a href="{{('contact')}}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">contact</a>
 
             </div>
+
             @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <li class="nav-item dropdown pe-3">
-
-                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                          <img src={{asset('fonts/img/logo.png')}}  class="rounded-circle">
-                          <span class=" dropdown-toggle ps-2">nouhaila</span>
-                        </a><!-- End Profile Iamge Icon -->
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                          <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>prof</span>
-                          </li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <form method="GET" action="{{ route('formateur.profile') }}">
-
-                            <x-dropdown-link :href="route('formateur.profile')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('my profile') }}
-                    </x-dropdown-link></form>
-
-
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-dropdown-link></form></ul>
-                      </li></ul>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 @else
                 <a href="" class="btn btn-primary">sing in</a>
