@@ -56,14 +56,15 @@
 
 
 <!-- JavaScript Libraries -->
-
+{{--
 <script src={{ asset('fonts/lib/wow/wow.min.js') }}></script>
 <script src={{ asset('fonts/lib/easing/easing.min.js') }}></script>
 <script src={{ asset('fonts/lib/waypoints/waypoints.min.js') }}></script>
 <script src={{ asset('lib/owlcarousel/owl.carousel.min.js') }}></script>
 
-<!-- Template Javascript -->
-<script src={{ asset('fonts/js/main.js') }}></script>
+<!-- Template Javascript --> --}}
+<script src={{ asset('js/app.js') }}>
+<script src={{ asset('js/bootstrap.js') }}></script>
 </body>
 
 </html>
