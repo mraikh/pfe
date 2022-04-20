@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
    <link href=" {{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}} " rel="stylesheet">
-  {{-- <link href="{{asset('assets/css/style.css')}}" rel="stylesheet"> --}}
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
   <link href="{{asset('fronts/css/bootstrap.css')}}" rel="stylesheet">
 
 </head>
