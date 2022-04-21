@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Role::create([
             'id' => 1 ,
-            'name' => 'teacher'
+            'name' => 'formateur'
         ]);
 
         Role::create([
             'id' => 2 ,
-            'name' => 'student'
+            'name' => 'apprenant'
         ]);
     }
 }
