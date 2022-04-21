@@ -17,7 +17,15 @@ use App\Http\Controllers\ApprenantController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/courses', function () {
+    return view('courses');
+});
+Route::get('/contact', function () {
+    return view('welcome');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
