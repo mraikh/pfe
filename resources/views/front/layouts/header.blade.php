@@ -55,12 +55,15 @@
                         </li></ul>
                     </div>
                 @else
-                    <a href="/login" class="btn btn-primary">sing in</a>
+                    <div class="d-md-flex justify-content-md-end">
+                    <a href="/login" class="btn btn-secondary py-4 px-lg-5 d-none d-lg-block ">sing in</a>
 
                     @if (Route::has('register'))
-                        <a href="/register" class="btn btn-primary">sing up</a>
+                        <a href="/register" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">sing up</a>
                     @endif
+                    </div>
                 @endauth
+
             </div>
         @endif
 
