@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>k-acdemy</h2>
+        <h2 class="m-0 text-primary">k-acdemy</h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -16,18 +16,18 @@
         </div>
 
         @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 ">
+            <div class="">
                 @auth
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
-                        <li class="nav-item dropdown pe-3">
+                        <li class="nav-item dropdown pe-5">
 
                             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                                <img src={{asset('fonts/img/logo.png')}}  class="rounded-circle">
-                                <span class=" dropdown-toggle ps-2">nouhaila</span>
+{{--                                <img src={{asset('fonts/img/logo.png')}}  class="rounded-circle">--}}
+                                <span class=" dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                             </a><!-- End Profile Iamge Icon -->
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                                 <li class="dropdown-header">
-                                    <h6>Kevin Anderson</h6>
+                                    <h6>{{Auth::user()->name}}</h6>
                                     <span>prof</span>
                                 </li>
                                 <li>
