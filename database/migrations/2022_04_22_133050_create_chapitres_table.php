@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('chapitres', function (Blueprint $table) {
             $table->id();
+            $table->text("description")->nullable();
+            $table->string("file")->nullable();
+            $table->foreignId('chapitre_id')->constrained('chapitres');
             $table->timestamps();
         });
     }

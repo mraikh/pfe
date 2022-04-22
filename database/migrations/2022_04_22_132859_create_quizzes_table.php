@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
+            $table->string("resultat")->nullable();
+            $table->foreignId('apprenant_id')->constrained('apprenants');
+            $table->foreignId('chapitre_id')->constrained('chapitres');
             $table->timestamps();
         });
     }

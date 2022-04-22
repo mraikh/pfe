@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cours', function (Blueprint $table) {
-            $table->id();
+            $table->id();$table->string("intitule");
+            $table->string("description")->nullable();
+            $table->string("duree");
+            $table->foreignId('formation_id')->constrained('formations');
             $table->timestamps();
         });
     }
