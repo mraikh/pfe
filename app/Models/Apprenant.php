@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\QuizController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,5 +16,13 @@ protected $fillable = ['name', 'user_id'];
 public function user(): BelongsTo
 {
     return $this->belongsTo(User::class, 'user_id', 'id');
+}
+public function quiz()
+{
+    return $this->hasMany('App\Models\quiz');
+}
+public function inscription()
+{
+    return $this->hasMany('App\Models\inscription');
 }
 }

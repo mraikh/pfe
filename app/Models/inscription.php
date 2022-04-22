@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class inscription extends Model
 {
     use HasFactory;
+    public function Apprenant()
+    {
+        return $this->belongsTo('App\Models\Apprenant');
+    }
 }
