@@ -13,7 +13,7 @@
                     </p>
 
                     <div class="d-flex flex-column flex-md-row">
-                        <a href="" class="btn btn-lg btn-primary mb-3 me-md-3">Get started</a>
+                        <a href="/register" class="btn btn-lg btn-primary mb-3 me-md-3">Get started</a>
                         <a href="" class="btn btn-lg btn-outline-secondary mb-3">Download</a>
                     </div>
 
