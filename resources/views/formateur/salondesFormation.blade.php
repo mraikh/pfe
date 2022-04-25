@@ -23,19 +23,17 @@
                 @foreach ($formations as $item)
                 <tr>
                     <td>{{$item->intitule}} </td><td> {{$item->description}} </td>
-                    {{-- <form action="{{url('cvs/'.$item->id)}}" method="POST">
+                {<form action="{{url('formateur/formations/'.$item->id.'/delete')}}" method="POST">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <td> <a href="" class="btn btn-primary">detials</a>
-                    <a href="{{('cvs/'.$item->id.'/edit')}}" class="btn btn-default">edit</a>
-                    <button type="submit" class="btn btn-danger">supprime</button>
-                    </td> --}}
+                     <td> <a href="{{('/formateur/formations/'.$item->id.'/view')}}" class="btn btn-primary">detials</a>
+                   <td> <a href="{{('/formateur/formations/'.$item->id.'/edit')}}" class="btn btn-default">edit</a>
+                   <button type="submit" class="btn btn-danger">supprime</button>
+                    </td>
+                    </td>
                 </tr>
                 @endforeach
-            {{-- </form> --}}
-
-
-        </table>
+            </table>
     </div>
 </div>
 @endsection

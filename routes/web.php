@@ -38,6 +38,10 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
     Route::get('/formations', [FormationController::class, 'index'])->name('formations');
     Route::get('/formations/create', [FormationController::class, 'create'])->name('Createformations');
     Route::post('/formations/create/store', [FormationController::class, 'store'])->name('storeformations');
+    Route::get('/formations/{id}/edit', [FormationController::class, 'edit'])->name('editeformations');
+    Route::post('/formations/{id}/update', [FormationController::class, 'update'])->name('updateformations');
+    Route::delete('/formations/{id}/delete', [FormationController::class, 'destroy'])->name('destroyformations');
+    Route::get('/formations/{id}/view', [FormationController::class, 'view'])->name('viewformations');
 });
 
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
