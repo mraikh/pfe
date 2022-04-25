@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CourController;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,8 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
     Route::post('/formations/{id}/update', [FormationController::class, 'update'])->name('updateformations');
     Route::delete('/formations/{id}/delete', [FormationController::class, 'destroy'])->name('destroyformations');
     Route::get('/formations/{id}/view', [FormationController::class, 'view'])->name('viewformations');
+    Route::get('/formations/Cours/create/{id} ', [CourController::class, 'create'])->name('CreateCours');
+      Route::post('/formations/cours/store/{id}', [CourController::class, 'store'])->name('storecours');
 });
 
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
