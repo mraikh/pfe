@@ -14,4 +14,5 @@ public function profile()
 {
     return view("Formateur.profile");
 }
+
 }

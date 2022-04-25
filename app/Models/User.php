@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -45,4 +46,8 @@ class User extends Authenticatable
     public function Role(){
         return $this->belongsTo('App\Models\Role');
     }
+    public function formateur(): BelongsTo
+{
+    return $this->belongsTo(Formateur::class,  'id','user_id');
+}
 }

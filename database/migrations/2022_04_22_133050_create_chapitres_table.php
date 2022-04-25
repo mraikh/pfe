@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text("description")->nullable();
             $table->string("file")->nullable();
-            $table->foreignId('chapitre_id')->constrained('chapitres');
+            $table->foreignId('cour_id')->constrained('cours');
             $table->timestamps();
         });
     }

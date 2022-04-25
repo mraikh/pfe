@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\ApprenantController;
+use App\Http\Controllers\FormationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +35,9 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
 
     Route::get('/', [FormateurController::class, 'index'])->name('index');
     Route::get('/profile', [FormateurController::class, 'profile'])->name('profile');
-
+    Route::get('/formations', [FormationController::class, 'index'])->name('formations');
+    Route::get('/formations/create', [FormationController::class, 'create'])->name('Createformations');
+    Route::post('/formations/create/store', [FormationController::class, 'store'])->name('storeformations');
 });
 
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
