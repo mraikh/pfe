@@ -19,7 +19,7 @@
 
                  @foreach ($cours as $item)
                 <tr>
-                    <td>{{$item->intitule}} </td><td> {{$item->description}} </td>
+                    <td>{{$item->intitule}} </td><td> {{$item->description}} </td><td> {{$item->duree}}h </td>
                 {{-- {<form action="{{url('formateur/Cour/'.$item->id.'/delete')}}" method="POST">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}

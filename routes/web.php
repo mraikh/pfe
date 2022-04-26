@@ -5,7 +5,7 @@ use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CourController;
-use App\Http\Controllers;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +24,8 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/courses', function () {
-    return view('courses');
-});
+Route::get('/courses', [CourController::class, 'cours'])->name('courses');
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -51,6 +50,11 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
 
     Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
+
+});
+Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
+
+    Route::get('/', [AdminController::class, 'index'])->name('index');
 
 });
 require __DIR__.'/auth.php';

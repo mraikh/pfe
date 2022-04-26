@@ -19,8 +19,11 @@ class checkRole
         return redirect()->route('dashboard');
     }
 
-    if ($role == 'apprenant' && auth()->user()->role_id != 2) {
+    if ($role == 'apprenant' && auth()->user()->role_id != 2 && auth()->user()->role_id != 3) {
         return redirect()->route('formateur.index');
+    }
+    if ($role == 'apprenant' && auth()->user()->role_id != 1  && auth()->user()->role_id != 2) {
+        return redirect()->route('admin.index');
     }
 
         return $next($request);

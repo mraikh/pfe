@@ -11,8 +11,15 @@ use App\Models\formation;
 
 class CourController extends Controller
 {
-public function __construct()
-    {$this->middleware('auth');
+
+// public function __construct()
+//     {$this->middleware('auth');
+//     }
+    public function cours(){
+        $cours=new cour();
+        $cours= cour::all();
+
+        return view('courses',['cours'=>$cours]);
     }
     public function create($id){
 
