@@ -35,6 +35,7 @@
 <body>
 @include('front.layouts.header')
 <main>
+    @include('front.layouts.messages')
     @yield('content')
 </main>
 @include('front.layouts.footer')
