@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('inscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string("resultat")->nullable();
             $table->foreignId('formateur_id')->constrained('formateurs');
             $table->foreignId('apprenant_id')->constrained('apprenants');
             $table->foreignId('formation_id')->constrained('formations');

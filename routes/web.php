@@ -50,6 +50,7 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
 
     Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
+    Route::get('/formations', [ApprenantController::class, 'formations'])->name('formations');
 
 });
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
