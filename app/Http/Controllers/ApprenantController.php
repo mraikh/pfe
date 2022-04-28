@@ -16,6 +16,7 @@ class ApprenantController extends Controller
 {
     return view("Apprenant.index");
 }
+
 public function formations(){
     $formations=new formation();
     $formations= formation::all();
@@ -26,21 +27,19 @@ public function view($id){
     $cours=cour::where('formation_id',$id)->get();
     return view('Apprenant.viewFormation',['formation'=>$formation,'cours'=>$cours]);
 
-}public function viewCour($id,$id_formation){
+}public function viewCour($id){
     $cour=cour::find($id);
     $chapitres=chapitre::where('cour_id',$id)->get();
-    return view('Apprenant.viewCour',['cour'=>$cour,'chapitres'=>$chapitres,'formation'=>$id_formation]);
+    return view('Apprenant.viewCour',['cour'=>$cour,'chapitres'=>$chapitres]);
 }
-public function inscription(Request $request,$id,$id_formation){
-    // //dd($request);
-           $inscription=new inscription();
-           $inscription->cour_id=$id;
-           $inscription->formation_id=$id_formation;
+public function inscription(Request $request,$itam){
+    // // //dd($request);
+            $inscription=new inscription();
+            $inscription->cour_id=$itam->id;
+           $inscription->formation_id=$itam->formation->id;
+           $inscription->formateur_id=$itam->formation->Formateur->id;
            $inscription->apprenant_id=Auth::user()->id;
           $inscription->save();
           session()->flash('success','l`inscription est enregistre!!!!');
-               return view('');}
-
-
-
+             return  redirect('/formations');}
 }

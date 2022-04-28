@@ -53,6 +53,9 @@ Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:appren
 
     Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
     Route::get('/formations', [ApprenantController::class, 'formations'])->name('formations');
+    Route::get('/view/{id}', [ApprenantController::class, 'view'])->name('view');
+    Route::post('/inscription/{iteam}', [ApprenantController::class, 'inscription'])->name('inscription');
+    Route::get('/viewCour', [ApprenantController::class, 'viewCour'])->name('viewCour');
 
 });
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {

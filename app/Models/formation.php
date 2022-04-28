@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class formation extends Model
 {
     use HasFactory;
+    protected $table = 'formations';
+protected $fillable = ['intitule', 'formateur_id'];
     public function cour()
     {
         return $this->hasMany('App\Models\cour');

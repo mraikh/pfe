@@ -6,28 +6,20 @@
 
         <h1> la  formation</h1>
 <p>{{$formation->intitule}}
-    {{$formation->description}}</p>
+    {{$formation->description}} le prof: {{$formation->Formateur->name}}</p>
 
                @if (session()->has('success'))
                 <div class="alert alert-success">
          {{session()->get('success')}}
                 </div>
                 @endif
-                <form method="get" action="{{'/formateur/formations/Cours/create/'.$formation->id}}">
-                 <a href="{{'/formateur/formations/Cours/create/'.$formation->id}}" class="btn btn-primary">nouveau cours</a>
-                </form>
-
                  @foreach ($cours as $item)
                 <tr>
-                    <td>{{$item->intitule}} </td><td> {{$item->description}} </td><td> {{$item->duree}}h </td>
-                {{-- {<form action="{{url('formateur/Cour/'.$item->id.'/delete')}}" method="POST">
-                    {{csrf_field()}}
-                    {{method_field('DELETE')}}
-                     <td> <a href="{{('/formateur/Cour/'.$item->id.'/view')}}" class="btn btn-primary">detials</a>
-                   <td> <a href="{{('/formateur/Cour/'.$item->id.'/edit')}}" class="btn btn-default">edit</a>
-                   <button type="submit" class="btn btn-danger">supprime</button>
-                    </td> --}}
-                    </td>
+                    <td>{{$item->intitule}} </td><td> {{$item->description}} </td><td> {{$item->duree}}h</td>
+                    <form action="{{url('apprenant/inscription/'.$item)}}" method="POST">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-primary" value="save">inscri</button>
+                    </form>
                 </tr>
                 @endforeach
             </table>
