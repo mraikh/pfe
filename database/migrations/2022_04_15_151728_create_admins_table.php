@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('formateurs', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string("name");
-            $table->string("specialite")->nullable();
-            $table->string("biography")->nullable();
+            // $table->string("name"); // Name already exists on User
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formateurs');
+        Schema::dropIfExists('admins');
     }
 };

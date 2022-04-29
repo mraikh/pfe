@@ -5,15 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class chapitre extends Model
+class Chapitre extends Model
 {
     use HasFactory;
-    public function quiz()
-{
-    return $this->hasMany('App\Models\quiz');
-}
-public function cour()
-{
-    return $this->belongsTo('App\Models\cour');
-}
+
+    protected $table = 'chapitres';
+    protected $fillable = [
+        'description',
+        'file',
+        'quiz',
+        'cours_id'
+    ];
+
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class, 'chapitre_id', 'id');
+    }
+    
+    public function cours()
+    {
+        return $this->belongsTo(Cours::class, 'cours_id', 'id');
+    }
 }

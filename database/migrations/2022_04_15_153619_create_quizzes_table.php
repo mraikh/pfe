@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cours', function (Blueprint $table) {
-            $table->id();$table->string("intitule");
-            $table->string("description")->nullable();
-            $table->string("duree");
-            $table->foreignId('formation_id')->constrained('formations')->onDelete('cascade')->onUpdate('cascade');
+        Schema::create('quizzes', function (Blueprint $table) {
+            $table->id();
+            $table->float("resultat")->nullable()->default(0.0); // resultat est calculé et stocké sous form d'un nombre (15/20 = 0,75 | 38/40 = 0,95 ...)
+            $table->foreignId('apprenant_id')->constrained('apprenants');
+            $table->foreignId('chapitre_id')->constrained('chapitres');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cours');
+        Schema::dropIfExists('quizzes');
     }
 };

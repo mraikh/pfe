@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
             'password'=>'admin 123',
             'email'=>'admin@gmail.com',
             'role_id'=> 3
-
         ]);
     }
 }

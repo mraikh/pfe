@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('apprenants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->string("name");
+            // $table->string("name"); -- You don't need a name! it's already inside User.
             $table->string("niveau_etu")->nullable();
             $table->string("ecole")->nullable();
             $table->timestamps();

@@ -10,15 +10,15 @@ class Formateur extends Model
 {
     use HasFactory;
     protected $table = 'formateurs';
-protected $fillable = ['name', 'user_id'];
+    protected $fillable = ['user_id', 'specialite', 'biography'];
 
-public function user(): BelongsTo
-{
-    return $this->belongsTo(User::class, 'user_id', 'id');
-}
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 
-public function formation()
-{
-    return $this->hasMany('App\Models\formation');
-}
+    public function formations()
+    {
+        return $this->hasMany(Formation::class, 'formateur_id', 'id');
+    }
 }

@@ -1,0 +1,26 @@
+{
+    "Question 1, some question!" : {
+        "answer 1": true,
+        "answer 2": false,
+        "answer 3": false,
+        "answer 4": false
+    },
+    "Question 2, some question!" : {
+        "answer 1": true,
+        "answer 2": false,
+        "answer 3": false,
+        "answer 4": false
+    },
+    "Question 4, some question!" : {
+        "answer 1": true,
+        "answer 2": false,
+        "answer 3": false,
+        "answer 4": false
+    },
+    "Question 5, some question!" : {
+        "answer 1": true,
+        "answer 2": false,
+        "answer 3": false,
+        "answer 4": false
+    }
+}
