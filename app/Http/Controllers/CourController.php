@@ -2,65 +2,106 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cours;
 use Illuminate\Http\Request;
-use App\Models\cour;
-use App\Models\Formateur;
-use Illuminate\support\Facades\Auth;
-use App\Models\formation;
-
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class CourController extends Controller
 {
 
-// public function __construct()
-//     {$this->middleware('auth');
-//     }
-    public function cours(){
-        $cours=new cour();
-        $cours= cour::all();
-
-        return view('courses',['cours'=>$cours]);
+    public function index()
+    {
+        $courses = Cours::all();
+        return response()->json($courses, 200);
     }
-    public function create($id){
 
-        return view('formateur.Cours.Create',['id'=>$id]);
+    public function view($id)
+    {
+        try {
+            $cours = Cours::find($id);
+            if (!$cours) {
+                abort(404, "Ce cours n'exist pas dans nos records");
+            }
+            return response()->json($cours, 200);
+        } catch (HttpException $e) {
+            return response()->json($e->getMessage(), $e->getStatusCode());
+        }
     }
-    public function store(Request $request,$id){
-// //dd($request);
-       $cour=new cour();
-      $cour->formation_id=$id;
-      $cour->intitule=$request->input('intitule');
-      $cour->description=$request->input('description');
-      $cour->duree=$request->input('duree');
-      $cour->save();
-      session()->flash('success','le cours et enregistre!!!!');
-           return redirect('formateur/formations/'.$id.'/view');}
-//     public function index(){
-//         $formations= formation::where('formateur_id',Auth::user()->formateur->id)->get();
-//         return view('formateur.salondesFormation',['formations'=>$formations]);
-//     }
-//      public function edit($id){
-//          $formation=formation::find($id);
-//          return view('formateur.edite',['formation'=>$formation]);
 
-//      }
-//    public function update(Request $request,$id){
-//          $formation=formation::find($id);
-//         $formation->intitule=$request->input('intitule');
-//         $formation->description=$request->input('description');
-//         session()->flash('success','la modification est enregistre!!!!');
-//  $formation->save();
-//  return redirect('formateur/formations');
-//      }
-//      public function destroy(Request $request,$id){
-//          $formation=formation::find($id);
-//          $formation->delete();
-//         return redirect('formateur/formations');}
-//         public function view($id){
-//             $formation=formation::find($id);
-//             $cours=cour::where('formation_id',$id)->get();
-// //dd($cours);
-//             return view('formateur.viewFormation',['formation'=>$formation,'cours'=>$cours]);
+    public function store(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'intitule' => 'required|string',
+                'formation_id' => 'required|numeric|exists:formations,id',
+                'description' => 'required|string',
+                'duree' => 'required|string',
+            ]);
 
-//         }
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 401);
+            }
+
+            $validated = $validator->validated();
+
+            $cours = Cours::create($validated);
+
+            return response()->json($cours, 200);
+        } catch (HttpException $e) {
+            return response()->json($e->getMessage(), $e->getStatusCode());
+        }
+    }
+
+    public function edit(Request $request)
+    {
+        try {
+
+            $validator = Validator::make($request->all(), [
+                'id' => 'required|numeric|exists:cours,id',
+                'intitule' => 'required|string',
+                'formation_id' => 'required|numeric|exists:formations,id',
+                'description' => 'required|string',
+                'duree' => 'required|string',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 401);
+            }
+
+            $validated = $validator->validated();
+
+            $cours = Cours::query()->find($validated['id']);
+            $cours->intitule = $validated['intitule'];
+            $cours->description = $validated['description'];
+            $cours->formation_id = $validated['formation_id'];
+            $cours->duree = $validated['duree'];
+            $cours->save();
+
+            return response()->json($cours, 200);
+        } catch (HttpException $e) {
+            return response()->json($e->getMessage(), $e->getStatusCode());
+        }
+
+    }
+
+    public function delete($id)
+    {
+        try {
+
+            $cours = Cours::find($id);
+
+            if (!$cours) {
+                abort(404, "Ce cours n'exist pas dans nos records");
+            }
+
+            $cours->delete();
+
+            array_merge($cours->toArray(), ['deleted' => true]);
+
+            return response()->json(array_merge($cours->toArray(), ['deleted' => true]), 200);
+        } catch (HttpException $e) {
+            return response()->json($e->getMessage(), $e->getStatusCode());
+        }
+    }
 }

@@ -13,17 +13,42 @@ class FormateurController extends Controller
 {
     public function index()
     {
-        $formateurs = Formateur::all();
+
+        /**
+         * using with, we can get the user record withing our Formateur:
+         * Example of the content of $formateur
+         * [
+         *  [
+         *      'id' => 1,
+         *      'specialite' => 'fullstack web dev',
+         *      'biography' => 'fullstack web dev',
+         *      'user' => [
+         *      'id' => 2,
+         *          'name' => 'Mehdi Jai',
+         *          'email' => 'contact@mehdijai.com'
+         *      ]
+         *  ]
+         * ]
+         * In order to get the content of user associated with Formateur use only:
+         * $formateur->user->email
+         */
+        $formateurs = Formateur::query()
+            ->with(['user' => function ($query) {
+                $query->select('id', 'name', 'email');
+            }])
+            ->get();
 
         return response()->json($formateurs, 200);
-        // return view("Formateur.index");
     }
 
     public function view($id)
     {
         try {
-            $formateur = Formateur::find($id);
-            if (empty($formateur)) {
+            $formateur = Formateur::with(['user' => function ($query) {
+                $query->select('id', 'name', 'email');
+            }])->find($id);
+
+            if (!$formateur) {
                 abort(404, "Ce Formateur n'exist pas dans nos records");
             }
             return response()->json($formateur, 200);

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('chapitres', function (Blueprint $table) {
             $table->id();
+            $table->text("intitule")->nullable();
             $table->text("description")->nullable();
             $table->string("file")->nullable();
             $table->json('quiz');

@@ -11,6 +11,7 @@ class Chapitre extends Model
 
     protected $table = 'chapitres';
     protected $fillable = [
+        'intitule',
         'description',
         'file',
         'quiz',
