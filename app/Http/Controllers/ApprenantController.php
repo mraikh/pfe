@@ -33,7 +33,7 @@ public function view($id){
     return view('Apprenant.viewCour',['cour'=>$cour,'chapitres'=>$chapitres]);
 }
 public function inscription(Request $request,$itam){
-    // // //dd($request);
+
             $inscription=new inscription();
             $inscription->cour_id=$itam->id;
            $inscription->formation_id=$itam->formation->id;

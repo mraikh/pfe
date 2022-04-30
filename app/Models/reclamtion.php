@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class reclamtion extends Model
 {
     use HasFactory;
+    public function User(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

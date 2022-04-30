@@ -18,6 +18,9 @@ class checkRole
     {  if ($role == 'formateur' && auth()->user()->role_id != 1) {
         return redirect()->route('dashboard');
     }
+    if ($role == 'admin' && auth()->user()->role_id != 3) {
+        return redirect()->route('dashboard');
+    }
 
     if ($role == 'apprenant' && auth()->user()->role_id != 2 && auth()->user()->role_id != 3) {
         return redirect()->route('formateur.index');

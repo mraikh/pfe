@@ -6,6 +6,7 @@ use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ReclamtionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,12 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
     Route::get('/formations/{id}/view', [FormationController::class, 'view'])->name('viewformations');
     Route::get('/formations/Cours/create/{id} ', [CourController::class, 'create'])->name('CreateCours');
       Route::post('/formations/cours/store/{id}', [CourController::class, 'store'])->name('storecours');
+      Route::get('/reclamation', [ReclamtionController::class, 'index'])->name('reclamation');
+      Route::get('/reclamationCreate', [ReclamtionController::class, 'Create'])->name('reclamationCreate');
+      Route::post('/reclamationStore', [ReclamtionController::class, 'Store'])->name('reclamationStore');
+      Route::delete('/reclamation/{id}/delete', [ReclamtionController::class, 'destroy'])->name('destroyReclamtion');
+      Route::post('/reclamationUpdate/{id}', [ReclamtionController::class, 'update'])->name('reclamationUpdate');
+      Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'edit'])->name('editereclamtions');
 });
 
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
@@ -56,11 +63,19 @@ Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:appren
     Route::get('/view/{id}', [ApprenantController::class, 'view'])->name('view');
     Route::post('/inscription/{iteam}', [ApprenantController::class, 'inscription'])->name('inscription');
     Route::get('/viewCour', [ApprenantController::class, 'viewCour'])->name('viewCour');
-
+     Route::get('/reclamation', [ReclamtionController::class, 'indexapprenant'])->name('reclamation');
+    Route::get('/reclamationCreate', [ReclamtionController::class, 'Createapprenant'])->name('reclamationCreate');
+    Route::post('/reclamationStore', [ReclamtionController::class, 'Storeapprenant'])->name('reclamationStore');
+    Route::delete('/reclamation/{id}/delete', [ReclamtionController::class, 'destroyapprenant'])->name('destroyReclamtion');
+    Route::post('/reclamationUpdate', [ReclamtionController::class, 'updateapprenant'])->name('reclamationUpdate');
+    Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editapprenant'])->name('editereclamtions');
 });
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
 
     Route::get('/', [AdminController::class, 'index'])->name('index');
-
+Route::get('/reclamation', [ReclamtionController::class, 'indexAdmin'])->name('reclamation');
+ Route::delete('/reclamation/delete', [ReclamtionController::class, 'destroyadmin'])->name('destroyReclamtion');
+ Route::post('/reclamationUpdate', [ReclamtionController::class, 'updateadmin'])->name('reclamationUpdate');
+ Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editadmin'])->name('editereclamtions');
 });
 require __DIR__.'/auth.php';

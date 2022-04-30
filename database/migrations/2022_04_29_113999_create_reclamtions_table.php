@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('reclamtions', function (Blueprint $table) {
             $table->id();
+            $table->text("sujet");
+             $table->foreignId('user_id')->constrained('users');
+            $table->string("rep_reclamation")->nullable();
             $table->timestamps();
         });
     }
