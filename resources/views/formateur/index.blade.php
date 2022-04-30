@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
     <div class="text-center ">
         <h6 class="section-title bg-white mt-4 text-primary px-3">Teacher Home</h6>
     </div>
