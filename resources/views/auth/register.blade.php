@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 {{-- register form--}}
-    <div class="container">
+    <div class="container" x-data="{role_id: 1}">
 
         <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
             <div class="container">
@@ -40,12 +40,45 @@
 
                                     <div class="col-12">
                                         <label for="role" class="form-label">role</label>
-                                        <select type="password" name="role" class="form-select" id="role" required>
+                                        <select x-model="role_id" type="password" name="role" class="form-select" id="role" required>
                                             <option value="1" class="form-select-sm">Formateur</option>
                                             <option value="2" class="form-select-sm">Apprenant</option>
                                         </select>
-                                        <div class="invalid-feedback">Please enter your password!</div>
+                                        <div class="invalid-feedback">Please select your role!</div>
                                     </div>
+
+                                    <div x-show="role_id == 1" class="col-12">
+                                        <label for="specialite" class="form-label">specialite</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="specialite" class="form-control" required>
+                                            <div class="invalid-feedback">Please enter your specialite.</div>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="role_id == 1" class="col-12">
+                                        <label for="biography" class="form-label">biography</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="biography" class="form-control" required>
+                                            <div class="invalid-feedback">Please enter your biography.</div>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="role_id == 2" class="col-12">
+                                        <label for="niveau" class="form-label">Niveau</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="niveau" class="form-control" required>
+                                            <div class="invalid-feedback">Please enter your niveau.</div>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="role_id == 2" class="col-12">
+                                        <label for="ecole" class="form-label">ecole</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" name="ecole" class="form-control" required>
+                                            <div class="invalid-feedback">Please enter your ecole.</div>
+                                        </div>
+                                    </div>
+                                    
 
                                     <div class="col-12">
                                         <label for="Password" class="form-label">Password</label>
@@ -76,6 +109,6 @@
         </section>
 
     </div>
-    <script src="{{asset('assets/js/main.js')}} "></script>
+    <script src="{{asset('js/app.js')}} "></script>
 @endsection
 
