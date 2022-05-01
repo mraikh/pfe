@@ -20,13 +20,14 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                      <a href="{{route('formateur.reclamation')}} " class="">
                         <div class="service-item text-center pt-3">
                             <div class="p-4">
                                 <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                                <h5 class="mb-3">Online Classes</h5>
+                                <h5 class="mb-3">reclamation</h5>
                                 <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                             </div>
-                        </div>
+                        </div></a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                         <div class="service-item text-center pt-3">

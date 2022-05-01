@@ -1,7 +1,6 @@
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-{{--        <i class="bi bi-key-fill fa-2x  text-primary pr-3"></i>--}}
         <h2 class="m-0 text-primary">k-acdemy</h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -22,8 +21,7 @@
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <li class="nav-item dropdown pe-5">
 
-                            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="{{('/apprenant')}}" data-bs-toggle="dropdown">
-{{--                                <img src={{asset('fonts/img/logo.png')}}  class="rounded-circle">--}}
+                            <a href='/apprenant' class="nav-link nav-profile d-flex align-items-center pe-0"  data-bs-toggle="dropdown">
                                 <span class=" dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                             </a><!-- End Profile Iamge Icon -->
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

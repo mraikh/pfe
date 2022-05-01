@@ -46,6 +46,9 @@ class User extends Authenticatable
     public function Role(){
         return $this->belongsTo('App\Models\Role');
     }
+    public function reclamation(){
+        return $this->hasMany('App\Models\reclamtion');
+    }
     public function formateur(): BelongsTo
 {
     return $this->belongsTo(Formateur::class,  'id','user_id');

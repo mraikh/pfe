@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('formateur_id')->constrained('formateurs');
+            $table->foreignId('formateur_id')->constrained('formateurs')->onDelete('cascade')->onUpdate('cascade');
             $table->string("intitule");
             $table->string("description")->nullable();
             $table->timestamps();
