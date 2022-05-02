@@ -83,6 +83,9 @@ Route::get('/fourmateurs', [FormateurController::class, 'indexAdmin'])->name('fo
 Route::get('/delete/{id}', [FormateurController::class, 'delete'])->name('delete');
 Route::get('/Apprenants', [ApprenantController::class, 'indexAdmin'])->name('Apprenants');
 Route::get('/delete/{id}', [ApprenantController::class, 'delete'])->name('delete');
+Route::get('/Formations', [FormationController::class, 'indexAdmin'])->name('Formations');
+Route::get('/delete/{id}', [FormationController::class, 'delete'])->name('delete');
+
 
 
 });
