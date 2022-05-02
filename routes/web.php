@@ -81,6 +81,9 @@ Route::get('/reclamation', [ReclamtionController::class, 'indexAdmin'])->name('r
  Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editadmin'])->name('editereclamtions');
 Route::get('/fourmateurs', [FormateurController::class, 'indexAdmin'])->name('fourmateurs');
 Route::get('/delete/{id}', [FormateurController::class, 'delete'])->name('delete');
+Route::get('/Apprenants', [ApprenantController::class, 'indexAdmin'])->name('Apprenants');
+Route::get('/delete/{id}', [ApprenantController::class, 'delete'])->name('delete');
+
 
 });
 require __DIR__.'/auth.php';

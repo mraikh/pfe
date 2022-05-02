@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use App\Models\Apprenant;
 use App\Models\chapitre;
 use App\Models\formation;
 use App\Models\cour;
@@ -15,6 +17,31 @@ class ApprenantController extends Controller
     public function index()
 {
     return view("Apprenant.index");
+}
+/////////////admin
+public function indexAdmin()
+{
+    $Apprenants=Apprenant::all();
+    // dd( $formateurs );
+     return view('admin.Apprenants',['Apprenants'=>$Apprenants]);
+}
+public function delete($id)
+{
+    try {
+
+        $Apprenant = Apprenant::find($id);
+
+        if (empty($Apprenant)) {
+            abort(404, "Ce Apprenant n'exist pas dans nos records");
+        }
+        $Apprenant->delete();
+
+        $Apprenant->user->delete();
+        return redirect('admin/Apprenants');
+
+    } catch (HttpException $e) {
+        return response()->json($e->getMessage(), $e->getStatusCode());
+    }
 }
 
 public function formations(){
