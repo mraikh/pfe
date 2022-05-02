@@ -10,7 +10,7 @@ class Formateur extends Model
 {
     use HasFactory;
     protected $table = 'formateurs';
-protected $fillable = ['name', 'user_id'];
+protected $fillable = [ 'name','user_id', 'specialite', 'biography'];
 
 public function user(): BelongsTo
 {

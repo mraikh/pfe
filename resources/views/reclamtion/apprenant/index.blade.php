@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <div class="text-center">
-    <h6 class="section-title bg-white mt-4 text-primary px-3">Training list</h6>
+    <h6 class="section-title bg-white mt-4 text-primary px-3">reclamation list</h6>
 </div>
 <div class="container mb-3">
     <div class="row">
@@ -12,8 +12,10 @@
                         <h5 class="card-title">{{$item->sujet}}</h5>
                     </div>
                     <div class="card-body">
-                        la reponse de admin:
+                       @if ($item->rep_reclamation)
+                       la reponse de admin:
                         <p class="card-text"  >{{$item->rep_reclamation}}</p>
+                         @endif
                          <div class="btn-group" role="group" aria-label="Basic example">
                             {{-- <a href="{{('formations/'.$item->id.'/view')}}" class="">
                                 <button type="button" class="btn btn-primary">detials</button>

@@ -54,6 +54,8 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
       Route::delete('/reclamation/{id}/delete', [ReclamtionController::class, 'destroy'])->name('destroyReclamtion');
       Route::post('/reclamationUpdate/{id}', [ReclamtionController::class, 'update'])->name('reclamationUpdate');
       Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'edit'])->name('editereclamtions');
+      Route::get('/{id}', [FormateurController::class, 'view'])->name('view');
+
 });
 
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
@@ -77,5 +79,8 @@ Route::get('/reclamation', [ReclamtionController::class, 'indexAdmin'])->name('r
  Route::delete('/reclamation/delete', [ReclamtionController::class, 'destroyadmin'])->name('destroyReclamtion');
  Route::post('/reclamationUpdate', [ReclamtionController::class, 'updateadmin'])->name('reclamationUpdate');
  Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editadmin'])->name('editereclamtions');
+Route::get('/fourmateurs', [FormateurController::class, 'indexAdmin'])->name('fourmateurs');
+Route::get('/delete/{id}', [FormateurController::class, 'delete'])->name('delete');
+
 });
 require __DIR__.'/auth.php';
