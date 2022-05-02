@@ -14,10 +14,15 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{$item->description}}</p>
+                        @foreach ($item->cour as $va )
+                        <p class="card-text">{{$va->intitule}}</p>
+                        @endforeach
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{('view/'.$item->id)}}" class="">
-                                <button type="button" class="btn btn-light">view trinnig deatils</button>
-                            </a>
+                            <form action="{{url('/apprenant/inscription')}}" method="POST">
+                                {{csrf_field()}}
+                                <input type="hidden" value="{{$item->id}} "name="id">
+                                <button type="submit" class="btn btn-light">inscri dans la formation</button>
+                            </form>
 
                         </div>
                     </div>

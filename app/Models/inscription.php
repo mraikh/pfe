@@ -12,4 +12,8 @@ class inscription extends Model
     {
         return $this->belongsTo('App\Models\Apprenant');
     }
+    public function formation()
+    {
+        return $this->belongsTo('App\Models\formation');
+    }
 }

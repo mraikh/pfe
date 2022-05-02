@@ -49,24 +49,23 @@ public function formations(){
     $formations= formation::all();
    return view('Apprenant.formations',['formations'=>$formations]);
 }
-public function view($id){
-    $formation=formation::find($id);
-    $cours=cour::where('formation_id',$id)->get();
-    return view('Apprenant.viewFormation',['formation'=>$formation,'cours'=>$cours]);
+ public function view($id){
+     $formation=formation::find($id);
+     $cours=cour::where('formation_id',$id)->get();
+     return view('Apprenant.viewFormation',['formation'=>$formation,'cours'=>$cours]);
 
-}public function viewCour($id){
+}
+public function viewCour($id){
     $cour=cour::find($id);
     $chapitres=chapitre::where('cour_id',$id)->get();
     return view('Apprenant.viewCour',['cour'=>$cour,'chapitres'=>$chapitres]);
 }
-public function inscription(Request $request,$itam){
+public function inscription(Request $request){
 
             $inscription=new inscription();
-            $inscription->cour_id=$itam->id;
-           $inscription->formation_id=$itam->formation->id;
-           $inscription->formateur_id=$itam->formation->Formateur->id;
-           $inscription->apprenant_id=Auth::user()->id;
-          $inscription->save();
+            $inscription->apprenant_id=Auth::user()->Apprenant->id;
+           $inscription->formation_id=$request->input('id');
+           $inscription->save();
           session()->flash('success','l`inscription est enregistre!!!!');
-             return  redirect('/formations');}
+             return  redirect('/apprenant/view/'.$inscription->formation_id);}
 }

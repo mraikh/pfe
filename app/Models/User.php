@@ -52,5 +52,8 @@ class User extends Authenticatable
     public function formateur(): BelongsTo
 {
     return $this->belongsTo(Formateur::class,  'id','user_id');
+}  public function Apprenant(): BelongsTo
+{
+    return $this->belongsTo(Apprenant::class,  'id','user_id');
 }
 }

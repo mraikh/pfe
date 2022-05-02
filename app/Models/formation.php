@@ -22,4 +22,8 @@ protected $fillable = ['intitule', 'formateur_id'];
 {
     return $this->belongsTo('App\Models\Formateur');
 }
+public function inscription()
+{
+    return $this->hasMany('App\Models\inscription');
+}
 }

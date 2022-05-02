@@ -10,12 +10,14 @@
     @foreach ($Apprenants as $iteam )
     <h3>{{$iteam->name}} </h3>
     <h3>{{$iteam->User->email}} </h3>
-    <h3>{{$iteam->specialite}} </h3>
-    <h3>{{$iteam->biography}} </h3>
-     {{-- @foreach ($iteam->formation as $va )
-    <h3>{{$va->intitule}} </h3>
 
-    @endforeach --}}
+     @foreach ($iteam->inscription as $va )
+
+  <h2>{{$va->formation->intitule}} </h2>
+
+
+
+    @endforeach
     <form action="{{url('admin/delete/'.$iteam->id)}}" method="get">
         {{csrf_field()}}
          {{-- {{method_field('DELETE')}} --}}
