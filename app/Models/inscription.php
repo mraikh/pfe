@@ -12,12 +12,4 @@ class inscription extends Model
     protected $table = 'inscriptions';
     protected $fillable = ['formation_id', 'apprenant_id'];
     protected $increment = true;
-    public function Apprenant()
-    {
-        return $this->belongsTo('App\Models\Apprenant');
-    }
-    public function formation()
-    {
-        return $this->belongsTo('App\Models\formation');
-    }
 }
