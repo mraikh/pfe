@@ -16,11 +16,14 @@
                  @foreach ($cours as $item)
                 <tr>
                     <td>{{$item->intitule}} </td><td> {{$item->description}} </td><td> {{$item->duree}}h</td>
-                    <form action="{{url('apprenant/inscription/'.$item)}}" method="POST">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-primary" value="save">inscri</button>
-                    </form>
+
                 </tr>
+                @foreach ($item->chapitre as $va)
+                <tr>
+                    <td>{{$va->intitule}} </td>
+
+                </tr>
+                @endforeach
                 @endforeach
             </table>
     </div>

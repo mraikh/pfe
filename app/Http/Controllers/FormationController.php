@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use App\Models\cour;
 use App\Models\Formateur;
 use Illuminate\support\Facades\Auth;
@@ -53,5 +53,28 @@ class FormationController extends Controller
 //dd($cours);
             return view('formateur.viewFormation',['formation'=>$formation,'cours'=>$cours]);
 
+        }
+        /////////////////////////admin
+        public function indexAdmin()
+        {
+            $Formations=Formation::all();
+            // dd( $formateurs );
+             return view('admin.Formations',['Formations'=>$Formations]);
+        }
+        public function delete($id)
+        {
+            try {
+
+                $Formation = formation::find($id);
+
+                if (empty($Formation)) {
+                    abort(404, "Ce Formation n'exist pas dans nos records");
+                }
+                $Formation->delete();
+                return redirect('admin/Formations');
+
+            } catch (HttpException $e) {
+                return response()->json($e->getMessage(), $e->getStatusCode());
+            }
         }
 }

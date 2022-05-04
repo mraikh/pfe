@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('formateurs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string("name");
             $table->string("specialite")->nullable();
-            $table->string("biography")->nullable();
+            $table->text("biography")->nullable();
             $table->timestamps();
         });
     }

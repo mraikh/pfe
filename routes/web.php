@@ -54,15 +54,17 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
       Route::delete('/reclamation/{id}/delete', [ReclamtionController::class, 'destroy'])->name('destroyReclamtion');
       Route::post('/reclamationUpdate/{id}', [ReclamtionController::class, 'update'])->name('reclamationUpdate');
       Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'edit'])->name('editereclamtions');
+      Route::get('/{id}', [FormateurController::class, 'view'])->name('view');
+
 });
 
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
 
     Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
     Route::get('/formations', [ApprenantController::class, 'formations'])->name('formations');
+    Route::post('/inscription', [ApprenantController::class, 'inscription'])->name('inscription');
     Route::get('/view/{id}', [ApprenantController::class, 'view'])->name('view');
-    Route::post('/inscription/{iteam}', [ApprenantController::class, 'inscription'])->name('inscription');
-    Route::get('/viewCour', [ApprenantController::class, 'viewCour'])->name('viewCour');
+Route::get('/viewCour', [ApprenantController::class, 'viewCour'])->name('viewCour');
      Route::get('/reclamation', [ReclamtionController::class, 'indexapprenant'])->name('reclamation');
     Route::get('/reclamationCreate', [ReclamtionController::class, 'Createapprenant'])->name('reclamationCreate');
     Route::post('/reclamationStore', [ReclamtionController::class, 'Storeapprenant'])->name('reclamationStore');
@@ -77,5 +79,14 @@ Route::get('/reclamation', [ReclamtionController::class, 'indexAdmin'])->name('r
  Route::delete('/reclamation/delete', [ReclamtionController::class, 'destroyadmin'])->name('destroyReclamtion');
  Route::post('/reclamationUpdate', [ReclamtionController::class, 'updateadmin'])->name('reclamationUpdate');
  Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editadmin'])->name('editereclamtions');
+Route::get('/fourmateurs', [FormateurController::class, 'indexAdmin'])->name('fourmateurs');
+Route::get('/delete/{id}', [FormateurController::class, 'delete'])->name('delete');
+Route::get('/Apprenants', [ApprenantController::class, 'indexAdmin'])->name('Apprenants');
+Route::get('/delete/{id}', [ApprenantController::class, 'delete'])->name('delete');
+Route::get('/Formations', [FormationController::class, 'indexAdmin'])->name('Formations');
+Route::get('/delete/{id}', [FormationController::class, 'delete'])->name('delete');
+
+
+
 });
 require __DIR__.'/auth.php';

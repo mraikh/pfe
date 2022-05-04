@@ -25,4 +25,8 @@ public function inscription()
 {
     return $this->hasMany('App\Models\inscription');
 }
+public function formations()
+    {
+        return $this->belongsToMany(Formation::class)->using(Inscription::class);
+    }
 }

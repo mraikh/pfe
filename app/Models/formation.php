@@ -22,4 +22,9 @@ protected $fillable = ['intitule', 'formateur_id'];
 {
     return $this->belongsTo('App\Models\Formateur');
 }
+
+public function apprenants()
+    {
+        return $this->belongsToMany(Apprenant::class)->using(Inscription::class);
+    }
 }
