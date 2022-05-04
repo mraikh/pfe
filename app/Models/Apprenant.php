@@ -34,6 +34,6 @@ class Apprenant extends Model
 
     public function formations()
     {
-        return $this->belongsToMany(Formation::class)->using(Inscription::class);
+        return $this->belongsToMany(Formation::class, 'inscriptions')->using(Inscription::class);
     }
 }

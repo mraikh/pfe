@@ -50,4 +50,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Formateur::class, 'id', 'user_id');
     }
+    public function apprenant()
+    {
+        return $this->belongsTo(Apprenant::class, 'id', 'user_id');
+    }
 }

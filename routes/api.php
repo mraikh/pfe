@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\FormateurController;
@@ -52,4 +53,14 @@ Route::prefix('chapitres')->name('chapitres.')->group(function () {
     Route::post('/store', [ChapitreController::class, 'store'])->name('store');
     Route::post('/edit', [ChapitreController::class, 'edit'])->name('edit');
     Route::get('/delete/{id}', [ChapitreController::class, 'delete'])->name('delete');
+});
+
+Route::prefix('apprenants')->name('apprenants.')->group(function () {
+    Route::get('/', [ApprenantController::class, 'index'])->name('index');
+    Route::get('/{id}', [ApprenantController::class, 'view'])->name('view');
+    Route::post('/store', [ApprenantController::class, 'store'])->name('store');
+    Route::post('/edit', [ApprenantController::class, 'edit'])->name('edit');
+    Route::get('/delete/{id}', [ApprenantController::class, 'delete'])->name('delete');
+    Route::post('/inscrire', [ApprenantController::class, 'inscrire'])->name('inscrire');
+    Route::post('/remove', [ApprenantController::class, 'remove'])->name('remove');
 });
