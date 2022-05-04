@@ -3,6 +3,11 @@
 <div class="text-center">
     <h6 class="section-title bg-white mt-4 text-primary px-3">Training list</h6>
 </div>
+<div class="container">
+    <a href="{{ url()->previous() }}" class="btn primary-btn bg-primary">
+        <i class="bi bi-arrow-left text-white"></i>
+    </a>
+</div>
 <div class="container mb-3">
     <div class="row">
         @foreach ($formations as $item)
@@ -10,7 +15,7 @@
                 <div class="card m-2">
                     <div class="card-header">
                         <h5 class="card-title">{{$item->intitule}}</h5>
-                        <p class="card-text"> teacher name :{{$item->formateur->name}}</p>
+                        <small class="card-text"> teacher name :{{$item->formateur->name}}</small>
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{$item->description}}</p>

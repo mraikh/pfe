@@ -7,9 +7,8 @@
 
                     <div class="service-item text-center pt-3">
                         <div class="p-4"><a href="{{route('admin.reclamation')}} ">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">la list des reclamations</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            <i class="bi bi-exclamation-circle-fill fa-3x text-primary mb-4"></i>
+                            <h5 class="mb-3">reclamations list</h5>
                         </a>
                         </div>
                     </div>
@@ -18,9 +17,9 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <a href="{{route('admin.fourmateurs')}} ">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3">la liste des formateur</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p></a>
+                                <i class="bi bi-file-earmark-person-fill fa-3x text-primary mb-4"></i>
+                                <h5 class="mb-3">Teachers list</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -28,9 +27,9 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <a href="{{route('admin.Apprenants')}} ">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">la liste des apprenants</h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p></a>
+                                <i class="bi bi-file-person-fill fa-3x text-primary mb-4"></i>
+                            <h5 class="mb-3">Students list</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -39,8 +38,8 @@
                         <div class="p-4">
                             <a href="{{route('admin.Formations')}} ">
                             <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3"> la liste des formations </h5>
-                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p></a>
+                            <h5 class="mb-3">Tutorials list</h5>
+                            </a>
                         </div>
                     </div>
                 </div>

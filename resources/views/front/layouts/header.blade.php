@@ -1,5 +1,5 @@
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top mb-3 p-0">
     <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <h2 class="m-0 text-primary">k-acdemy</h2>
     </a>
@@ -21,7 +21,7 @@
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <li class="nav-item dropdown pe-5">
 
-                            <a href='/apprenant' class="nav-link nav-profile d-flex align-items-center pe-0"  data-bs-toggle="dropdown">
+                            <a href='/apprenant' class="nav-link nav-profile  align-items-center pe-0"  data-bs-toggle="dropdown">
                                 <span class=" dropdown-toggle ps-2">{{Auth::user()->name}}</span>
                             </a><!-- End Profile Iamge Icon -->
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
