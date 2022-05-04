@@ -14,9 +14,9 @@ protected $fillable = ['intitule', 'formateur_id'];
     {
         return $this->hasMany('App\Models\cour');
     }
-    public function Apprenant()
+    public function inscription()
     {
-        return $this->hasMany('App\Models\Apprenant');
+        return $this->hasMany('App\Models\inscription');
     }
     public function Formateur()
 {

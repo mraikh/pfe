@@ -17,7 +17,7 @@
      <h1>___________</h1>
 
     @endforeach
-    <form action="{{url('admin/delete/'.$iteam->id)}}" method="get">
+    <form action="{{url('admin/deleteformation/'.$iteam->id)}}" method="get">
         {{csrf_field()}}
          {{-- {{method_field('DELETE')}} --}}
         <button type="submit" class="btn btn-danger">Delete</button>

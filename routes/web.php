@@ -40,6 +40,8 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
     Route::get('/', [FormateurController::class, 'index'])->name('index');
     Route::get('/profile', [FormateurController::class, 'profile'])->name('profile');
     Route::get('/formations', [FormationController::class, 'index'])->name('formations');
+    Route::get('/indexApprenant', [FormateurController::class, 'indexApprenant'])->name('indexApprenant');
+    Route::post('/remove', [ApprenantController::class, 'remove'])->name('remove');
     Route::get('/formations/create', [FormationController::class, 'create'])->name('Createformations');
     Route::post('/formations/create/store', [FormationController::class, 'store'])->name('storeformations');
     Route::get('/formations/{id}/edit', [FormationController::class, 'edit'])->name('editeformations');
@@ -80,11 +82,11 @@ Route::get('/reclamation', [ReclamtionController::class, 'indexAdmin'])->name('r
  Route::post('/reclamationUpdate', [ReclamtionController::class, 'updateadmin'])->name('reclamationUpdate');
  Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editadmin'])->name('editereclamtions');
 Route::get('/fourmateurs', [FormateurController::class, 'indexAdmin'])->name('fourmateurs');
-Route::get('/delete/{id}', [FormateurController::class, 'delete'])->name('delete');
 Route::get('/Apprenants', [ApprenantController::class, 'indexAdmin'])->name('Apprenants');
-Route::get('/delete/{id}', [ApprenantController::class, 'delete'])->name('delete');
 Route::get('/Formations', [FormationController::class, 'indexAdmin'])->name('Formations');
-Route::get('/delete/{id}', [FormationController::class, 'delete'])->name('delete');
+Route::get('/deleteformation/{id}', [FormationController::class, 'delete'])->name('delete');
+Route::get('/deleteFormateur/{id}', [FormateurController::class, 'delete'])->name('delete');
+Route::get('/deleteApprenant/{id}', [ApprenantController::class, 'delete'])->name('delete');
 
 
 

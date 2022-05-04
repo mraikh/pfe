@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apprenant;
 use Illuminate\Http\Request;
 use App\Models\Formateur;
+use App\Models\formation;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -15,6 +18,16 @@ class FormateurController extends Controller
 {
     return view("Formateur.index");
 }
+////////////////////////Apprenant
+public function indexApprenant()
+
+{
+$formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
+     return view("Formateur.apprenant.apprenant",['formations'=>$formations]);
+
+}
+
+///////////////////////Apprenant
 public function indexAdmin()
 {
     $formateurs =Formateur::all();
