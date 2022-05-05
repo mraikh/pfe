@@ -16,9 +16,7 @@
                             <p class="card-text">{{$item->description}}</p>
 {{--                            add deltials edit and delete links--}}
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="" class="">
-                                    <button type="button" class="btn btn-primary">detials</button>
-                                </a>
+
                                 <a href=""  class="">
                                     <button type="button" class="btn btn-light">edit</button>
                                 </a>
@@ -29,9 +27,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-footer text-muted">
-                            {{$item->duree}}h
-                        </div>
+
                     </div>
                 </div>
             @endforeach
