@@ -29,4 +29,5 @@ public function formations()
     {
         return $this->belongsToMany(Formation::class)->using(Inscription::class);
     }
+
 }

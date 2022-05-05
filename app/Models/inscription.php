@@ -10,4 +10,12 @@ class inscription extends Model
     use HasFactory;protected $table = 'inscriptions';
     protected $fillable = ['formation_id', 'apprenant_id'];
     protected $increment = true;
+    public function formation()
+    {
+        return $this->belongsTo('App\Models\formation');
+    }
+    public function Apprenant()
+    {
+        return $this->belongsTo('App\Models\Apprenant');
+    }
 }

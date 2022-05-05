@@ -12,8 +12,9 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Formation</th>
                 <th scope="col">Action</th>
-                <th scope="col"></th>
+
             </tr>
             </thead>
             <tbody>
@@ -22,17 +23,17 @@
                     <th scope="row">{{$iteam->id}}</th>
                     <td>{{$iteam->name}}</td>
                     <td>{{$iteam->User->email}}</td>
-                    <td>
-                        <form action="{{url('admin/delete/'.$iteam->id)}}" method="get">
-                            {{csrf_field()}}
-                            {{-- {{method_field('DELETE')}} --}}
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                    <td>  @foreach ($iteam->inscription as $va )
+                        {{$va->formation->intitule}}
+                    @endforeach
+
                     </td>
-                    <td>
-                        @foreach ($iteam->inscription as $va )
-                            {{$va->formation->intitule}}
-                        @endforeach
+                    <td> <form action="{{url('admin/deleteApprenant/'.$iteam->id)}}" method="get">
+                        {{csrf_field()}}
+                        {{-- {{method_field('DELETE')}} --}}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
                     </td>
                 </tr>
             @endforeach

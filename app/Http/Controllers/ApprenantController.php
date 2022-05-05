@@ -73,4 +73,19 @@ public function inscription(Request $request){
           session()->flash('success','l`inscription est enregistre!!!!');
              return  redirect('/apprenant/view/'.$inscription->formation_id);
             }
-}
+    public function remove(Request $request)
+            {
+                try {
+
+                    $inscription = inscription::find($request->input('id'));
+
+                    if (empty($inscription)) {
+                        abort(404, "Ce inscription n'exist pas dans nos records");
+                    }
+                    $inscription->delete();
+                    return redirect('formateur/indexApprenant');
+
+                } catch (HttpException $e) {
+                    return response()->json($e->getMessage(), $e->getStatusCode());
+                }
+            }}

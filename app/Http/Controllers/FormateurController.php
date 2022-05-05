@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Formateur;
 use App\Models\User;
+use App\Models\formation;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -38,6 +40,16 @@ public function view($id)
     }
 
 }
+////////////////////////Apprenant
+public function indexApprenant()
+
+{
+$formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
+     return view("Formateur.apprenant.apprenant",['formations'=>$formations]);
+
+}
+
+///////////////////////Apprenant
     public function edit(Request $request)
     {
         try {
