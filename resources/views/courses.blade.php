@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+            <h6 class="section-title bg-white text-center text-primary px-3">Courses </h6>
         </div>
         <div class="row g-4 justify-content-center">
             @foreach ($cours as $item)
