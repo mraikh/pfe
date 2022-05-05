@@ -50,6 +50,9 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
     Route::get('/formations/{id}/view', [FormationController::class, 'view'])->name('viewformations');
     Route::get('/formations/Cours/create/{id} ', [CourController::class, 'create'])->name('CreateCours');
       Route::post('/formations/cours/store/{id}', [CourController::class, 'store'])->name('storecours');
+      Route::get('/formations/Cours/{id}/edite', [CourController::class, 'edit'])->name('editeCours');
+      Route::post('/formations/cours/{id}/update', [CourController::class, 'update'])->name('updatecours');
+      Route::delete('/formations/cours/{id}/delete', [CourController::class, 'destroy'])->name('destroycours');
       Route::get('/reclamation', [ReclamtionController::class, 'index'])->name('reclamation');
       Route::get('/reclamationCreate', [ReclamtionController::class, 'Create'])->name('reclamationCreate');
       Route::post('/reclamationStore', [ReclamtionController::class, 'Store'])->name('reclamationStore');
