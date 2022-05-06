@@ -11,7 +11,7 @@ class Apprenant extends Model
 
     use HasFactory;
     protected $table = 'apprenants';
-protected $fillable = ['name', 'user_id'];
+protected $fillable = ['name', 'user_id', 'niveau_etu', 'ecole'];
 
 public function user(): BelongsTo
 {
