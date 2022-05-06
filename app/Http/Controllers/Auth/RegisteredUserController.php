@@ -51,12 +51,16 @@ class RegisteredUserController extends Controller
         if($request->role == 1){
             Formateur::create([
                 'name' => $request->name,
-                'user_id' => $user->id
+                'user_id' => $user->id,
+                'specialite'=>$request->specialite,
+                'biography'=>$request->biography
             ]);
         }else if($request->role == 2){
             Apprenant::create([
                 'name' => $request->name,
-                'user_id' => $user->id
+                'user_id' => $user->id,
+                'niveau_etu'=>$request->niveau,
+                'ecole'=>$request->ecole
             ]);
         }
 
