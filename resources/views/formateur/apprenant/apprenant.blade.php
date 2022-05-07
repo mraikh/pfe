@@ -1,5 +1,5 @@
 @foreach ($formations as $iteam )
-{{$iteam->id}}
+{{$iteam->intitule}}
 @foreach ($iteam->inscription as $va)
 {{$va->Apprenant->name}}
 {{$va->Apprenant->User->email}}

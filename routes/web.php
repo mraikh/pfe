@@ -7,6 +7,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReclamtionController;
+use App\Http\Controllers\ChapitreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,13 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
     Route::get('/formations/Cours/create/{id} ', [CourController::class, 'create'])->name('CreateCours');
       Route::post('/formations/cours/store/{id}', [CourController::class, 'store'])->name('storecours');
       Route::get('/formations/Cours/{id}/edite', [CourController::class, 'edit'])->name('editeCours');
-      Route::post('/formations/cours/{id}/update', [CourController::class, 'update'])->name('updatecours');
+      Route::get('/formations/{id}/view/Cour', [CourController::class, 'view'])->name('viewCours');
+      Route::get('/formations/CreateChapitre/{id}', [ChapitreController::class, 'create'])->name('CreateChapitre');
+      Route::post('/formations/create/store/{id}/chapitre', [ChapitreController::class, 'store'])->name('storeChapitre');
+      Route::post('/formations/create/update/{id}/chapitre', [ChapitreController::class, 'update'])->name('updateChapitre');
+      Route::get('/formations/Cours/{id}/editeChapitre', [ChapitreController::class, 'edit'])->name('editeChapitre');
+      Route::delete('/formations/{id}/deleteChapitre', [ChapitreController::class, 'destroy'])->name('destroyChapitres');
+  Route::post('/formations/cours/{id}/update', [CourController::class, 'update'])->name('updatecours');
       Route::delete('/formations/cours/{id}/delete', [CourController::class, 'destroy'])->name('destroycours');
       Route::get('/reclamation', [ReclamtionController::class, 'index'])->name('reclamation');
       Route::get('/reclamationCreate', [ReclamtionController::class, 'Create'])->name('reclamationCreate');

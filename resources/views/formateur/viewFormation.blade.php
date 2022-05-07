@@ -19,7 +19,7 @@
                             <p class="card-text">{{$item->description}}</p>
 {{--                            add deltials edit and delete links--}}
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="" class="">
+                                <a href="{{('/formateur/formations/'.$item->id.'/view/Cour')}} " class="">
                                     <button type="button" class="btn btn-primary">detials</button>
                                 </a>
                                 <a href="{{('/formateur/formations/Cours/'.$item->id.'/edite')}}"  class="">

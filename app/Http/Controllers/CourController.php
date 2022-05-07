@@ -42,14 +42,7 @@ class CourController extends Controller
          return view('formateur.Cours.edite',['cour'=>$cour]);
 
       }
-//    public function update(Request $request,$id){
-//          $formation=formation::find($id);
-//         $formation->intitule=$request->input('intitule');
-//         $formation->description=$request->input('description');
-//         session()->flash('success','la modification est enregistre!!!!');
-//  $formation->save();
-//  return redirect('formateur/formations');
-//      }
+
 public function update(Request $request,$id){
     // //dd($request);
     $cour=cour::find($id);
@@ -64,7 +57,7 @@ public function update(Request $request,$id){
           $cour=cour::find($id);
           $cour->delete();
          return redirect('formateur/formations/'.$cour->formation->id.'/view');}
-         public function view($id){
+     public function view($id){
              $cour=cour::find($id);
    $chapitres=chapitre::where('cour_id',$id)->get();
 // // dd($cours);

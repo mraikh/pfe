@@ -50,7 +50,7 @@
                                     <div x-show="role_id == 1" class="col-12">
                                         <label for="specialite" class="form-label">specialite</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" name="specialite" class="form-control" required>
+                                            <input type="text" name="specialite" class="form-control" :required="role_id == 1" >
                                             <div class="invalid-feedback">Please enter your specialite.</div>
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                                     <div x-show="role_id == 1" class="col-12">
                                         <label for="biography" class="form-label">biography</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" name="biography" class="form-control" required>
+                                            <input type="text" name="biography" class="form-control" :required="role_id == 1">
                                             <div class="invalid-feedback">Please enter your biography.</div>
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                                     <div x-show="role_id == 2" class="col-12">
                                         <label for="niveau" class="form-label">Niveau</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" name="niveau" class="form-control" required>
+                                            <input type="text" name="niveau" class="form-control" :required="role_id == 2" >
                                             <div class="invalid-feedback">Please enter your niveau.</div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                     <div x-show="role_id == 2" class="col-12">
                                         <label for="ecole" class="form-label">ecole</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" name="ecole" class="form-control" required>
+                                            <input type="text" name="ecole" class="form-control" :required="role_id == 2">
                                             <div class="invalid-feedback">Please enter your ecole.</div>
                                         </div>
                                     </div>
@@ -110,6 +110,5 @@
 
     </div>
      <script src="{{asset('js/app.js')}} "></script>
-
 @endsection
 

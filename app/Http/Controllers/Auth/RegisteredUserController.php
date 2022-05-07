@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-
+use Illuminate\Support\Facades\Log;
 class RegisteredUserController extends Controller
 {
     /**
@@ -35,15 +35,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        Log::info($request->all());
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role' => ['required', 'numeric', 'exists:roles,id'],
-            'specialite'=>'sometimes|string',
-            'biography'=>'sometimes|string',
-            'niveau_etu'=>'sometimes|string',
-            'ecole'=>'sometimes|string',
+            'specialite'=>'nullable|string',
+            'biography'=>'nullable|string',
+            'niveau_etu'=>'nullable|string',
+            'ecole'=>'nullable|string',
         ]);
 
         $user = User::create([

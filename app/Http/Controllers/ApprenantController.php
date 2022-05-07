@@ -53,8 +53,7 @@ public function formations(){
       $formation=formation::find($id);
       $cours=cour::where('formation_id',$id)->get();
       return view('Apprenant.viewFormation',['formation'=>$formation,'cours'=>$cours]);
-
- }
+}
 // public function viewCour($id){
 //     $cour=cour::find($id);
 //     $chapitres=chapitre::where('cour_id',$id)->get();

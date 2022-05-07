@@ -14,13 +14,14 @@
                     <div class="card m-2">
                         <div class="card-body">
                             <p class="card-text">{{$item->description}}</p>
+                            <a href="{{asset('storage/'.$item->file)}}"  class="">pdf chapitre</a>
 {{--                            add deltials edit and delete links--}}
                             <div class="btn-group" role="group" aria-label="Basic example">
 
-                                <a href=""  class="">
+                                <a href="{{('/formateur/formations/Cours/'.$item->id.'/editeChapitre')}} "  class="">
                                     <button type="button" class="btn btn-light">edit</button>
                                 </a>
-                                <form action="" method="POST">
+                                <form action="{{('/formateur/formations/'.$item->id.'/deleteChapitre')}} " method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
                                      <button type="submit" class="btn btn-danger ">Delete</button>
@@ -32,8 +33,8 @@
                 </div>
             @endforeach
         </div>
-        <form method="get" action=>
-            <a href=""  class="btn btn-primary">New Chpitres</a>
+        <form method="get" action="{{('/formateur/formations/CreateChapitre/'.$cour->id)}} ">
+            <a href="{{('/formateur/formations/CreateChapitre/'.$cour->id)}} "  class="btn btn-primary">New Chpitres</a>
         </form>
     </div>
 @endsection
