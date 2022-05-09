@@ -17,7 +17,11 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{$item->description}}</p>
-{{--                            add deltials edit and delete links--}}
+             <?php $i=0;?>
+          @foreach ($item->chapitre as $va )
+               <?php $i++; echo "chapitre $i"?>
+                    <p class="card-text">{{$va->description}}</p>
+                    @endforeach
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{('/formateur/formations/'.$item->id.'/view/Cour')}} " class="">
                                     <button type="button" class="btn btn-primary">detials</button>

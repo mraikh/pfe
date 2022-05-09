@@ -17,10 +17,14 @@
                 <tr>
                     <td>{{$item->intitule}} </td><td> {{$item->description}} </td><td> {{$item->duree}}h</td>
 
-                </tr>
+                </tr><br>
+
                 @foreach ($item->chapitre as $va)
                 <tr>
-                    <td>{{$va->intitule}} </td>
+                    <td>{{$va->description}} </td>
+
+                    <a href="{{asset('storage/'.$va->file)}}"  class="">pdf chapitre</a>
+                    <br>
 
                 </tr>
                 @endforeach
