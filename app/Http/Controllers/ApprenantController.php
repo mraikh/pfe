@@ -54,6 +54,11 @@ public function formations(){
       $cours=cour::where('formation_id',$id)->get();
       return view('Apprenant.viewFormation',['formation'=>$formation,'cours'=>$cours]);
 }
+public function mesFormations(){
+ $inscriptions=inscription::where('Apprenant_id',Auth::user()->Apprenant->id)->get();
+    return view('Apprenant.MesFormations',['inscriptions'=>$inscriptions]);
+}
+
 // public function viewCour($id){
 //     $cour=cour::find($id);
 //     $chapitres=chapitre::where('cour_id',$id)->get();
@@ -65,12 +70,12 @@ public function inscription(Request $request){
     $inscription->formation_id=$request->input('id');
     foreach (Auth::user()->Apprenant->inscription as $key ) {
         if ($key->formation_id==$inscription->formation_id) {
-            return  redirect('/apprenant/view/'.$inscription->formation_id);
+            return  redirect('/apprenant/mesFormations');
         }
     }
            $inscription->save();
           session()->flash('success','l`inscription est enregistre!!!!');
-             return  redirect('/apprenant/view/'.$inscription->formation_id);
+             return  redirect('/apprenant/mesFormations');
             }
     public function remove(Request $request)
             {

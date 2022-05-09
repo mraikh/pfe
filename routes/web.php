@@ -77,7 +77,8 @@ Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:appren
     Route::post('/inscription', [ApprenantController::class, 'inscription'])->name('inscription');
     Route::get('/view/{id}', [ApprenantController::class, 'view'])->name('view');
 Route::get('/viewCour', [ApprenantController::class, 'viewCour'])->name('viewCour');
-     Route::get('/reclamation', [ReclamtionController::class, 'indexapprenant'])->name('reclamation');
+Route::get('/mesFormations', [ApprenantController::class, 'mesFormations'])->name('mesFormations');
+ Route::get('/reclamation', [ReclamtionController::class, 'indexapprenant'])->name('reclamation');
     Route::get('/reclamationCreate', [ReclamtionController::class, 'Createapprenant'])->name('reclamationCreate');
     Route::post('/reclamationStore', [ReclamtionController::class, 'Storeapprenant'])->name('reclamationStore');
     Route::delete('/reclamation/{id}/delete', [ReclamtionController::class, 'destroyapprenant'])->name('destroyReclamtion');
