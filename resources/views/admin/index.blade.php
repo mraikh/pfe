@@ -16,7 +16,7 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <a href="{{route('admin.fourmateurs')}} ">
-                                <i class="bi bi-file-earmark-person-fill fa-3x text-primary mb-4"></i>
+                                <i class="fa fa-user-tie fa-3x text-primary mb-4"></i>
                                 <h5 class="mb-3">Teachers list</h5>
                             </a>
                         </div>
@@ -26,7 +26,7 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <a href="{{route('admin.Apprenants')}} ">
-                                <i class="bi bi-file-person-fill fa-3x text-primary mb-4"></i>
+                                <i class="fa fa-user fa-3x text-primary mb-4"></i>
                             <h5 class="mb-3">Students list</h5>
                             </a>
                         </div>

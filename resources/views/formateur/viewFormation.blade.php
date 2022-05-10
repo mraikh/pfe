@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+    <div class="container">
+        <a href="/formateur/formations" class="btn primary-btn bg-primary">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+    </div>
     <div class="text-center">
         <h6 class="section-title bg-white mt-4 text-primary px-3">Course List</h6>
     </div>
