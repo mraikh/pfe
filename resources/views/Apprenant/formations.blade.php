@@ -4,7 +4,7 @@
     <h6 class="section-title bg-white mt-4 text-primary px-3">tutorials list</h6>
 </div>
 <div class="container">
-    <a href="{{ url()->previous() }}" class="btn primary-btn bg-primary">
+    <a href="/apprenant" class="btn primary-btn bg-primary">
         <i class="bi bi-arrow-left text-white"></i>
     </a>
 </div>

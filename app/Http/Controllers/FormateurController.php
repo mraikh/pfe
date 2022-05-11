@@ -20,7 +20,7 @@ class FormateurController extends Controller
     public function profile()
     {
         $formateur=Formateur::find(Auth::user()->formateur->id);
-        return view("Formateur.profile",['formateur'=>$formateur]);
+        return view("formateur.profile",['formateur'=>$formateur]);
     }
 public function indexAdmin()
 {

@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+    <div class="container">
+        <a href="/formateur/formations/{{$id}}/view/Cour" class="btn primary-btn bg-primary">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+    </div>
     <div class="container m-5 ">
         <div class="row justify-content-center">
             <div class="w-25 ">

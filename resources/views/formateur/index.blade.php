@@ -19,24 +19,35 @@
                         </a>
                     </div>
                     <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                      <a href="{{route('formateur.reclamation')}} " class="">
-                        <div class="service-item text-center pt-3">
-                            <div class="p-4">
-                                <i class="bi bi-exclamation-circle-fill fa-3x text-primary mb-4"></i>
-                                <h5 class="mb-3">reclamation</h5>
+                        <a href="{{route('formateur.reclamation')}} " class="">
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="bi bi-exclamation-circle-fill fa-3x text-primary mb-4"></i>
+                                    <h5 class="mb-3">reclamation</h5>
+                                </div>
                             </div>
-                        </div></a>
+                        </a>
                     </div>
-                    <div class="col-lg-12 col-sm-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                    <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                         <a href="{{route('formateur.indexApprenant')}} " class="">
-                        <div class="service-item text-center pt-3">
-                            <div class="p-4">
-                                <i class="bi bi-file-person-fill fa-3x text-primary mb-4"></i>
-                                <h5 class="mb-3">my students</h5>
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="bi bi-file-person-fill fa-3x text-primary mb-4"></i>
+                                    <h5 class="mb-3">my students</h5>
+                                </div>
                             </div>
-                        </div>
-                    </div></a>
-
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <a href="{{route('formateur.profile')}} " class="">
+                            <div class="service-item text-center pt-3">
+                                <div class="p-4">
+                                    <i class="bi bi-person-circle fa-3x text-primary mb-4"></i>
+                                    <h5 class="mb-3">profile</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 </div>
             </div>

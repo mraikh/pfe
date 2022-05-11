@@ -1,8 +1,13 @@
 @extends('layout')
 @section('content')
+    <div class="container">
+        <a href="/apprenant" class="btn primary-btn bg-primary">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+    </div>
     <div class="container m-5 ">
         <div class="row justify-content-center">
-            <div class="w-25 ">
+            <div class="w-50 ">
                 <div class="card bg-light">
                     <div class="card-header text-center">
                         <h5>Creat new reclamation</h5>
@@ -12,7 +17,7 @@
                             {{csrf_field()}}
 
                             <div class="mb-3">
-                                <label for="sujet" class="form-label">sujet</label>
+                                <label for="sujet" class="form-label">subject</label>
                                 <textarea type="text" class="form-control" name="sujet">{{old('sujet')}}</textarea>
                             </div>
 

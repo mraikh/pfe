@@ -1,5 +1,5 @@
 <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top mb-3 p-0">
+<nav class="navbar navbar-expand-lg bg-light navbar-light shadow sticky-top mb-3 p-0">
     <a href="{{url('/')}}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <h2 class="m-0 text-primary">k-acdemy</h2>
     </a>
@@ -32,12 +32,12 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <form method="GET" action="{{ route('formateur.profile') }}">
+                                <form method="GET" action="/formateur">
 
                                     <x-dropdown-link :href="route('formateur.profile')"
                                                      onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                                        {{ __('my profile') }}
+                                        {{ __('Dashboard') }}
                                     </x-dropdown-link></form>
 
 

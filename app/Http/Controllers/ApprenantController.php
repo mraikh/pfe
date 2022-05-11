@@ -49,6 +49,11 @@ public function formations(){
     $formations= formation::all();
    return view('Apprenant.formations',['formations'=>$formations]);
 }
+    public function profile()
+    {
+        $apprenant=Apprenant::find(Auth::user()->apprenant->id);
+        return view("Apprenant.profile",['apprenant'=>$apprenant]);
+    }
  public function view($id){
       $formation=formation::find($id);
       $cours=cour::where('formation_id',$id)->get();

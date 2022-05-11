@@ -73,6 +73,7 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
 Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:apprenant'])->group(function () {
 
     Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
+    Route::get('/profile', [ApprenantController::class, 'profile'])->name('profile');
     Route::get('/formations', [ApprenantController::class, 'formations'])->name('formations');
     Route::post('/inscription', [ApprenantController::class, 'inscription'])->name('inscription');
     Route::get('/view/{id}', [ApprenantController::class, 'view'])->name('view');

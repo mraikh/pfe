@@ -1,11 +1,15 @@
 @extends('layout')
 @section('content')
+    <div class="container">
+        <a href="/formateur/formations/{{$cour->formation->id}}/view" class="btn primary-btn bg-primary">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+    </div>
     <div class="text-center">
-        <h6 class="section-title bg-white mt-4 text-primary px-3">Course List</h6>
+        <h6 class="section-title bg-white mt-4 text-primary px-3">{{$cour->intitule}} course</h6>
     </div>
     <div class="container">
-        <h3>Cour: {{$cour->intitule}}</h3>
-        <h5>{{$cour->description}}</h5>
+        <p>{{$cour->description}}</p>
     </div>
     <div class="container mb-3">
         <div class="row">
