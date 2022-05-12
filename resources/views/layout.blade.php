@@ -27,6 +27,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href= {{asset('fonts/css/bootstrap.min.css')}} rel="stylesheet">
     <link href={{ asset('fonts/css/style.css') }} rel="stylesheet">
+    <link href={{ asset('fonts/css/app.css') }} rel="stylesheet">
     {{--    <!-- Template Stylesheet -->--}}
 
 {{--        <link href={{ asset('css/app.css') }} rel="stylesheet">--}}

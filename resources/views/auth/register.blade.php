@@ -1,22 +1,25 @@
 @extends('layout')
 @section('content')
 {{-- register form--}}
-    <div class="container" x-data="{role_id: 1}">
+<div class="container" x-data="{role_id: 1}">
 
-        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center pt-3">
-{{--                        logo--}}
-                        <div class="card mb-3 bg-light">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
-                            <div class="card-body">
+        <div class="col-xl-10 col-lg-12 col-md-9">
 
-                                <div class="pt-3 ">
-                                    <h5 class="card-title text-center pb-0 ">Create a new account</h5>
-{{--                                    <p class="text-center small">Enter your username & password to login</p>--}}
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            <img src="{{asset('img/Taking notes-amico.png')}}" class="col-lg-12  d-lg-block" alt="">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                 </div>
-
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
 
@@ -100,15 +103,24 @@
                                         <p class="small mb-0">You already have an account? <a href="{{ route('login') }}">login</a></p>
                                     </div>
                                 </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="register.html">Create an Account!</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </section>
+        </div>
 
     </div>
+
+</div>
      <script src="{{asset('js/app.js')}} "></script>
 @endsection
 
