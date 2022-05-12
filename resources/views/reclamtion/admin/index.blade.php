@@ -1,7 +1,12 @@
 @extends('layout')
 @section('content')
+    <div class="container mb-3">
+        <a href="/admin" class="btn primary-btn bg-primary">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+    </div>
 <div class="text-center">
-    <h6 class="section-title bg-white mt-4 text-primary px-3">Training list</h6>
+    <h6 class="section-title bg-white mt-4 text-primary px-3">Reclamation list</h6>
 </div>
 <div class="container mb-3">
     <div class="row">

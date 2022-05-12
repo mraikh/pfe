@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="container mb-3">
-        <a href="{{ url()->previous() }}" class="btn primary-btn bg-primary">
+        <a href="/admin" class="btn primary-btn bg-primary">
             <i class="bi bi-arrow-left text-white"></i>
         </a>
     </div>

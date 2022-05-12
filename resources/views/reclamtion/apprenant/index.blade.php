@@ -3,8 +3,8 @@
 <div class="text-center">
     <h6 class="section-title bg-white mt-4 text-primary px-3">reclamation list</h6>
 </div>
-<div class="container">
-    <a href="{{ url()->previous() }}" class="btn primary-btn bg-primary">
+<<div class="container">
+    <a href="/apprenant" class="btn primary-btn bg-primary">
         <i class="bi bi-arrow-left text-white"></i>
     </a>
 </div>
