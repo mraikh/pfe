@@ -21,12 +21,14 @@
 
                     <div class="ms-3">
                         <h5 class="text-primary">Mobile</h5>
+                        <p class="mb-0">+212 6</p>
                         <p class="mb-0">+212 61911-1789</p>
                     </div>
                 </div>
                 <div class="d-flex align-items-center">
                     <div class="ms-3">
                         <h5 class="text-primary">Email</h5>
+                        <p class="mb-0">NouhailaMraikh@gmail.com</p>
                         <p class="mb-0">nidkouchiyassine@gmail.com</p>
                     </div>
                 </div>
