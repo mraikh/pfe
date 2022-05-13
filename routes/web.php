@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\AvancementController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReclamtionController;
@@ -76,6 +77,7 @@ Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:appren
     Route::get('/profile', [ApprenantController::class, 'profile'])->name('profile');
     Route::get('/formations', [ApprenantController::class, 'formations'])->name('formations');
     Route::post('/inscription', [ApprenantController::class, 'inscription'])->name('inscription');
+    Route::post('/avancement', [AvancementController::class, 'avancement'])->name('done');
     Route::get('/view/{id}', [ApprenantController::class, 'view'])->name('view');
 Route::get('/viewCour', [ApprenantController::class, 'viewCour'])->name('viewCour');
 Route::get('/mesFormations', [ApprenantController::class, 'mesFormations'])->name('mesFormations');

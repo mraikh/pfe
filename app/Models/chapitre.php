@@ -12,6 +12,10 @@ class chapitre extends Model
 {
     return $this->hasMany('App\Models\quiz');
 }
+public function avancement()
+{
+    return $this->hasMany('App\Models\avancement');
+}
 public function cour()
 {
     return $this->belongsTo('App\Models\cour');
