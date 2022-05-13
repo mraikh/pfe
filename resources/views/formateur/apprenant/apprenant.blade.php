@@ -18,6 +18,7 @@
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Cour avancement</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -25,6 +26,11 @@
                                 <tr>
                                     <td>{{$va->Apprenant->name}}</td>
                                     <td>{{$va->Apprenant->User->email}}</td>
+                                    <td>@foreach ( $iteam->cour as $ve)
+                                        {{ $ve->intitule}}<br>
+                                        {{$va->Apprenant->avancement->Count('cour_id',$ve->id)/$ve->chapitre->Count()*100}}%
+                                    @endforeach
+                                         </td>
                                     <td>
                                         <form action={{url('formateur/remove')}}  method="post">
                                             {{csrf_field()}}
