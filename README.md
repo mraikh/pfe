@@ -12,15 +12,9 @@ The logic and routes will be just api's, I will not use view or blade!
 The quiz implementation demo will be the only case with frontend, with AlpineJS. Just to demonstrate how you would implement the logic with JSON. 
 ---
 
-# Update Inscription
-To be able to use `Inscription` as pivot, the model should extend `Pivot` instead of `Model`. Also, we should declare the name of the custom table as second parameter of `belongsToMany()`.
-To link Apprenant with Formation, we use `attach()` method.
-
-```php
-    $apprenant->formations()->attach($validated['formation_id']);
-    // OR, in your case
-    Auth::user()->apprenant()->formations()->attach($validated['formation_id']);
-```
+# Setup Quiz frontend
+The concept is using model binding of AlpineJS. Whenever we click "Add" button, we push the values of Quiz inputs into `quizzes` array. Next, clear `quiz` model in order to reset the form, for the next question.
+the value of `quizzes` array are converted automatically using model binding (`x-model`) into JSON. In this phase, quizzes variable with be submitted within the form, as json. Finally, save the form inputs in the DB.
 
 ## Process of refactoring
 
@@ -31,6 +25,6 @@ To link Apprenant with Formation, we use `attach()` method.
 - [x] Formation CRUD
 - [x] Cours CRUD
 - [X] Chapitre CRUD
-- [ ] Quiz Logic Interface
+- [x] Quiz Logic Interface
 - [x] Apprenant CRUD
 - [x] Inscription Logic

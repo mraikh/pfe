@@ -6,6 +6,7 @@ use App\Http\Controllers\ApprenantController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChapitreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +64,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified', 
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
 });
+
+Route::get('/create-chapter', [ChapitreController::class, 'create'])->name('chapter.create');
+Route::post('/store-chapter', [ChapitreController::class, 'store'])->name('chapter.store');
+
 require __DIR__.'/auth.php';

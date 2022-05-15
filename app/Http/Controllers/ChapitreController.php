@@ -27,6 +27,10 @@ class ChapitreController extends Controller
             return response()->json($e->getMessage(), $e->getStatusCode());
         }
     }
+    public function create()
+    {
+        return view('formateur.Chapter.create');
+    }
 
     public function store(Request $request)
     {
