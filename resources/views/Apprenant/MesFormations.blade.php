@@ -26,7 +26,7 @@
                                 <?php $i=0;?>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="{{$va->intitule."h"}}">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{$va->intitule}}" aria-expanded="false" aria-controls="{{$va->description}}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{$va->intitule.$item->formation->intitule}}" aria-expanded="false" aria-controls="{{$va->intitule.$item->formation->intitule}}">
                                             {{$va->intitule}}{{--<small class="card-text">{{Auth::user()->Apprenant->avancement->Count('cour_id',$va->id)/$va->chapitre->Count()*100}}%</small>--}}
                                         </button>
                                         <div class="progress">
@@ -35,7 +35,7 @@
                                     </h2>
 {{--                                <p class="card-text">{{$va->intitule}}</p>--}}
 {{--                                <p class="card-text">{{Auth::user()->Apprenant->avancement->Count('cour_id',$va->id)/$va->chapitre->Count()*100}}%</p>--}}
-                                    <div id="{{$va->intitule}}" class="accordion-collapse collapse" aria-labelledby="{{$va->intitule."h"}}" data-bs-parent="#accordionFlushExample">
+                                    <div id="{{$va->intitule.$item->formation->intitule}}" class="accordion-collapse collapse" aria-labelledby="{{$va->intitule."h"}}" data-bs-parent="#accordionFlushExample">
                                         @foreach ($va->chapitre as $sva)
                                                 <div class="accordion-body">
                                                     <small>description:{{$sva->description}}</small><br>
