@@ -12,16 +12,17 @@
                     <h3 class="text-center">{{$iteam->intitule}}</h3>
                 </div>
                 <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cour avancement</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
                     @foreach ($iteam->inscription as $va)
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Cour avancement</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                            </thead>
+
                             <tbody>
                                 <tr>
                                     <td>{{$va->Apprenant->name}}</td>
@@ -40,8 +41,9 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+
                     @endforeach
+                    </table>
                 </div>
             </div>
         @endforeach
