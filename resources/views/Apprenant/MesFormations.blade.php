@@ -27,11 +27,15 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="{{$va->intitule."h"}}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{$va->intitule.$item->formation->intitule}}" aria-expanded="false" aria-controls="{{$va->intitule.$item->formation->intitule}}">
-                                            {{$va->intitule}}{{--<small class="card-text">{{Auth::user()->Apprenant->avancement->Count('cour_id',$va->id)/$va->chapitre->Count()*100}}%</small>--}}
+                                            {{$va->intitule}}
+                                            {{--<small class="card-text">{{Auth::user()->Apprenant->avancement->Count('cour_id',$va->id)/$va->chapitre->Count()*100}}%</small>--}}
                                         </button>
+                                        @if ($va->chapitre->Count())
                                         <div class="progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{Auth::user()->Apprenant->avancement->Count('cour_id',$va->id)/$va->chapitre->Count()*100}}%"></div>
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{Auth::user()->Apprenant->avancement->where('cour_id',$va->id)->Count()/$va->chapitre->Count()*100}}%"></div>
                                         </div>
+                                        @endif
+
                                     </h2>
 {{--                                <p class="card-text">{{$va->intitule}}</p>--}}
 {{--                                <p class="card-text">{{Auth::user()->Apprenant->avancement->Count('cour_id',$va->id)/$va->chapitre->Count()*100}}%</p>--}}
