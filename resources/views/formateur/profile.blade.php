@@ -17,8 +17,12 @@
 {{--                        <p class="text-muted mb-1">{{$formateur->specialite}}</p>--}}
                         <p class="text-muted mb-4">{{$formateur->biography}}</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <button type="button" class="btn btn-primary">Follow</button>
-                            <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                            <button type="button" href="" class="btn btn-primary">ajouter photo profile</button>
+<form action="{{url('formateur/Editeprofile')}}" method="GET">
+@csrf
+<button  class="btn btn-outline-primary ms-1">Editer</button>
+</form>
+
                         </div>
                     </div>
                 </div>

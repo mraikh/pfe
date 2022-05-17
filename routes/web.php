@@ -41,6 +41,7 @@ Route::prefix('formateur')->name('formateur.')->middleware(['auth:sanctum', 'ver
 
     Route::get('/', [FormateurController::class, 'index'])->name('index');
     Route::get('/profile', [FormateurController::class, 'profile'])->name('profile');
+    Route::get('/Editeprofile', [FormateurController::class, 'Editeprofile'])->name('Editeprofile');
     Route::get('/formations', [FormationController::class, 'index'])->name('formations');
     Route::get('/indexApprenant', [FormateurController::class, 'indexApprenant'])->name('indexApprenant');
     Route::post('/remove', [ApprenantController::class, 'remove'])->name('remove');
