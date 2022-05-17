@@ -18,9 +18,10 @@
                         <p class="text-muted mb-4">{{$formateur->biography}}</p>
                         <div class="d-flex justify-content-center mb-2">
                             <button type="button" href="" class="btn btn-primary">ajouter photo profile</button>
-<form action="{{url('formateur/Editeprofile')}}" method="GET">
+<form action="{{url('formateur/Editeprofile')}}" method="post">
 @csrf
-<button  class="btn btn-outline-primary ms-1">Editer</button>
+<input type="hidden" name="id" value="{{$formateur->id}}">
+<button type="submit" class="btn btn-outline-primary ms-1">Editer</button>
 </form>
 
                         </div>

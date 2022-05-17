@@ -102,38 +102,22 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
         }
     }
     public function updateprofile(Request $request)
-    {
-        try {
+    {$id=$request->input('id');
+        return dd($id);
 
-            $validator = Validator::make($request->all(), [
-                'id' => 'required|numeric|exists:formateurs,id',
-                'specialite' => 'required|string',
-                'biography' => 'required|string|max:120',
-            ]);
+        // $formateur = Formateur::find($request->input('id'));
+        //     $formateur->specialite = $request->input('specialite');
+        //     $formateur->biography =$request->input('biography');
+        //     $formateur->save();
 
-            if ($validator->fails()) {
-                return response()->json($validator->errors(), 401);
-            }
 
-            $validated = $validator->validated();
-
-            $formateur = Formateur::find($validated['id']);
-            $formateur->specialite = $validated['specialite'];
-            $formateur->biography = $validated['biography'];
-            $formateur->save();
-
-            return redirect('formateur/profile') ;
-        } catch (HttpException $e) {
-            return response()->json($e->getMessage(), $e->getStatusCode());
+        //      return redirect('formateur/profile') ;
         }
 
+    public function Editeprofile(Request $request)
+    { $id=$request->input('id');
 
-    }
-
-
-    public function Editeprofile()
-    {
-        return view("formateur.Editeprofile");
+        return view("formateur.Editeprofile",['id'=>$id]);
     }
 
 }
