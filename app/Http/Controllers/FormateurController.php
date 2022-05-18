@@ -104,15 +104,15 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
     public function updateprofile(Request $request)
     {$id=$request->input('id');
         $formateur = Formateur::find($request->input('id'));
-        $formateur->user->name= $request->input('name');
-        $formateur->user->email= $request->input('email');
+       $user=User::find($formateur->user_id);
+       $user->name= $request->input('name');
+       $user->email= $request->input('email');
         $formateur->name = $request->input('name');
             $formateur->specialite = $request->input('specialite');
             $formateur->biography =$request->input('biography');
             $formateur->save();
-
-
-             return redirect('formateur/profile') ;
+            $user->save();
+return redirect('formateur/profile') ;
         }
 
     public function Editeprofile(Request $request)

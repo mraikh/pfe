@@ -17,7 +17,7 @@
 {{--                        <p class="text-muted mb-1">{{$formateur->specialite}}</p>--}}
                         <p class="text-muted mb-4">{{$formateur->biography}}</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <button type="button" href="" class="btn btn-primary">ajouter photo profile</button>
+                            <button type="file" name="photo"   class="btn btn-primary">ajouter photo profile</button>
 <form action="{{url('formateur/Editeprofile')}}" method="post">
 @csrf
 <input type="hidden" name="id" value="{{$formateur->id}}">
