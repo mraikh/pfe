@@ -17,8 +17,13 @@
 {{--                        <p class="text-muted mb-1">{{$formateur->specialite}}</p>--}}
                         <p class="text-muted mb-4">{{$formateur->biography}}</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <button type="file" name="photo"   class="btn btn-primary">ajouter photo profile</button>
-<form action="{{url('formateur/Editeprofile')}}" method="post">
+                            <form action="{{url('formateur/ajouterPhotoprofile')}}" method="post" enctype="multipart/form-data">@csrf
+                                <input type="hidden" name="id" value="{{$formateur->user->id}}">
+                                <input  class="form-control" type="file" name="photo">
+                                <button type="submit"  class="btn btn-primary">ajouter photo profile</button>
+                            </form>
+
+<form action="{{url('formateur/Editeprofile')}}" method="post" >
 @csrf
 <input type="hidden" name="id" value="{{$formateur->id}}">
 <button type="submit" class="btn btn-outline-primary ms-1">Editer</button>

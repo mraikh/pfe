@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-
+use Illuminate\Http\UploadedFile;
 class FormateurController extends Controller
 {
     public function index()
@@ -102,7 +102,7 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
         }
     }
     public function updateprofile(Request $request)
-    {$id=$request->input('id');
+    {
         $formateur = Formateur::find($request->input('id'));
        $user=User::find($formateur->user_id);
        $user->name= $request->input('name');
@@ -119,6 +119,12 @@ return redirect('formateur/profile') ;
     { $id=$request->input('id');
 
         return view("formateur.Editeprofile",['id'=>$id]);
+    }
+    public function ajouterPhotoprofile(Request $request)
+    {  $user=User::find($request->input('id'));
+        $user->photo=$request->file('photo')->store('photo');
+        $user->save();
+        return redirect('formateur/profile') ;
     }
 
 }
