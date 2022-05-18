@@ -1,7 +1,8 @@
 @extends('layout')
 @section('content')
 <div class="col-lg-8"><form action="{{url('formateur/updateprofile')}}" method="post">
-    <input type="hidden" value="{{$id}}" name="id">
+    @csrf
+    <input type="hidden"  name="id" value="{{$id}}" >
     <div class="card mb-4">
         <div class="card-body">
             <div class="row">
@@ -41,7 +42,8 @@
             </div>
         </div>
 
-  <button type="submit" class="btn btn-outline-primary ms-1"> save</button> </div></form>
+   </div>
+   <button type="submit" class="btn btn-outline-primary ms-1"> save</button></form>
 
 </div>
 @endsection

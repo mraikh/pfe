@@ -103,15 +103,16 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
     }
     public function updateprofile(Request $request)
     {$id=$request->input('id');
-        return dd($id);
+        $formateur = Formateur::find($request->input('id'));
+        $formateur->user->name= $request->input('name');
+        $formateur->user->email= $request->input('email');
+        $formateur->name = $request->input('name');
+            $formateur->specialite = $request->input('specialite');
+            $formateur->biography =$request->input('biography');
+            $formateur->save();
 
-        // $formateur = Formateur::find($request->input('id'));
-        //     $formateur->specialite = $request->input('specialite');
-        //     $formateur->biography =$request->input('biography');
-        //     $formateur->save();
 
-
-        //      return redirect('formateur/profile') ;
+             return redirect('formateur/profile') ;
         }
 
     public function Editeprofile(Request $request)
