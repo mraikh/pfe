@@ -131,16 +131,27 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
 return redirect('formateur/profile') ;
         }
 
-    public function Editeprofile(Request $request)
-    { $id=$request->input('id');
-        $formateur=Formateur::find(Auth::user()->formateur->id);
-        return view("formateur.Editeprofile",['id'=>$id,'formateur'=>$formateur]);
-    }
-    public function ajouterPhotoprofile(Request $request)
-    {  $user=User::find($request->input('id'));
-        $user->photo=$request->file('photo')->store('photo');
-        $user->save();
-        return redirect('formateur/profile') ;
-    }
+        public function Editeprofile(Request $request)
+        { $id=$request->input('id');
+            $formateur=Formateur::find(Auth::user()->formateur->id);
+            return view("formateur.Editeprofile",['id'=>$id,'formateur'=>$formateur]);
+        }
+        public function ajouterPhotoprofile(Request $request)
+        { $validator = Validator::make($request->all(), [
+            'id' => 'required|numeric',
+            'photo' => 'required',
+
+        ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 401);
+            }
+
+            $validated = $validator->validated();
+             $user=User::find( $validated['id']);
+            $user->photo= $validated['photo']->store('photo');
+            $user->save();
+            return redirect('formateur/profile') ;
+        }
 
 }
