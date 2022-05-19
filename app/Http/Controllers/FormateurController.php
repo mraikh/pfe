@@ -133,8 +133,8 @@ return redirect('formateur/profile') ;
 
     public function Editeprofile(Request $request)
     { $id=$request->input('id');
-
-        return view("formateur.Editeprofile",['id'=>$id]);
+        $formateur=Formateur::find(Auth::user()->formateur->id);
+        return view("formateur.Editeprofile",['id'=>$id,'formateur'=>$formateur]);
     }
     public function ajouterPhotoprofile(Request $request)
     {  $user=User::find($request->input('id'));
