@@ -103,13 +103,29 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
     }
     public function updateprofile(Request $request)
     {
-        $formateur = Formateur::find($request->input('id'));
+
+
+            $validator = Validator::make($request->all(), [
+                'id' => 'required|numeric|exists:formateurs,id',
+                'name' => 'required|string',
+                'email' => 'required|email|unique:users,email',
+                'specialite' => 'required|string',
+                'biography' => 'required|string|max:120',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 401);
+            }
+
+            $validated = $validator->validated();
+
+        $formateur = Formateur::find($validator['id']);
        $user=User::find($formateur->user_id);
-       $user->name= $request->input('name');
-       $user->email= $request->input('email');
-        $formateur->name = $request->input('name');
-            $formateur->specialite = $request->input('specialite');
-            $formateur->biography =$request->input('biography');
+       $user->name= $validator['name'];
+       $user->email= $validator['email'];
+        $formateur->name = $validator['name'];
+            $formateur->specialite = $validator['specialite'];
+            $formateur->biography =$validator['biography'];
             $formateur->save();
             $user->save();
 return redirect('formateur/profile') ;
