@@ -1,28 +1,44 @@
 @extends('layout')
 @section('content')
-<div class="container m-5 ">
-    <div class="row justify-content-center">
-        <div class="w-25 ">
-            <div class="card bg-light">
-                <div class="card-header text-center">
-                    <h5>Creat new training</h5>
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('formateur.storeformations') }}" method="POST">
-                        {{csrf_field()}}
-                    <div class="mb-3">
-                        <label for="training name" class="form-label">Training name</label>
-                        <input type="text" class="form-control" name="intitule" value="{{old('intitule')}}">
+    <div class="container">
+        <a href="/formateur/formations" class="btn primary-btn bg-primary">
+            <i class="bi bi-arrow-left text-white"></i>
+        </a>
+    </div>
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0  my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <img src="{{asset('img/addtringform.png')}}" class="col-lg-12  d-lg-block" alt="">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Creat new training</h1>
+                                    </div>
+                                    <form action="{{ route('formateur.storeformations') }}" method="POST">
+                                        {{csrf_field()}}
+                                        <div class="mb-3">
+                                            <label for="training name" class="form-label">Training name</label>
+                                            <input type="text" class="form-control" name="intitule" value="{{old('intitule')}}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Description</label>
+                                            <textarea type="text" class="form-control" name="description">{{old('description')}}</textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" value="save">Save</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea type="text" class="form-control" name="description">{{old('description')}}</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" value="save">Save</button>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
