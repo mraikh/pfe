@@ -23,10 +23,12 @@
                     <th scope="row">{{$iteam->id}}</th>
                     <td>{{$iteam->name}}</td>
                     <td>{{$iteam->User->email}}</td>
-                    <td>  @foreach ($iteam->inscription as $va )
-                        {{$va->formation->intitule}}
-                    @endforeach
-
+                    <td>
+                        <ul>
+                        @foreach ($iteam->inscription as $va )
+                            <li>{{$va->formation->intitule}}</li>
+                        @endforeach
+                        </ul>
                     </td>
                     <td> <form action="{{url('admin/deleteApprenant/'.$iteam->id)}}" method="get">
                         {{csrf_field()}}
