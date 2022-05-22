@@ -28,10 +28,11 @@
                                     <td>{{$va->Apprenant->name}}</td>
                                     <td>{{$va->Apprenant->User->email}}</td>
                                     <td>@foreach ( $iteam->cour as $ve)
-                                        {{ $ve->intitule}}<br>
-@if ($ve->chapitre->Count())
-{{$va->Apprenant->avancement->where('cour_id',$va->id)->Count()/$ve->chapitre->Count()*100}}%
-@endif
+                                        @if ($ve->chapitre->Count())
+                                        {{$va->Apprenant->avancement->where('cour_id',$ve->id)->Count()/$ve->chapitre->Count()*100}}%
+                                        @endif {{ $ve->intitule}}
+                                     <br>
+
 
                                     @endforeach
                                          </td>
