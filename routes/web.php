@@ -78,6 +78,9 @@ Route::prefix('apprenant')->middleware(['auth:sanctum', 'verified', 'role:appren
 
     Route::get('/', [ApprenantController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ApprenantController::class, 'profile'])->name('profile');
+    Route::post('/Editeprofile', [ApprenantController::class, 'Editeprofile'])->name('Editeprofile');
+    Route::post('/updateprofile', [ApprenantController::class, 'updateprofile'])->name('updateprofile');
+    Route::post('/ajouterPhotoprofile', [ApprenantController::class, 'ajouterPhotoprofile'])->name('ajouterPhotoprofile');
     Route::get('/formations', [ApprenantController::class, 'formations'])->name('formations');
     Route::post('/inscription', [ApprenantController::class, 'inscription'])->name('inscription');
     Route::post('/avancement', [AvancementController::class, 'avancement'])->name('done');

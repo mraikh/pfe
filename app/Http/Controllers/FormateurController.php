@@ -9,6 +9,7 @@ use App\Models\formation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Http\UploadedFile;
 class FormateurController extends Controller
@@ -119,13 +120,13 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
 
             $validated = $validator->validated();
 
-        $formateur = Formateur::find($validator['id']);
+        $formateur = Formateur::find($validated['id']);
        $user=User::find($formateur->user_id);
-       $user->name= $validator['name'];
-       $user->email= $validator['email'];
-        $formateur->name = $validator['name'];
-            $formateur->specialite = $validator['specialite'];
-            $formateur->biography =$validator['biography'];
+       $user->name= $validated['name'];
+       $user->email= $validated['email'];
+        $formateur->name = $validated['name'];
+            $formateur->specialite = $validated['specialite'];
+            $formateur->biography =$validated['biography'];
             $formateur->save();
             $user->save();
 return redirect('formateur/profile') ;
