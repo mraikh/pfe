@@ -31,9 +31,42 @@
                                 <a href="{{('/formateur/formations/'.$item->id.'/view/Cour')}} " class="">
                                     <button type="button" class="btn btn-primary">detials</button>
                                 </a>
-                                <a href="{{('/formateur/formations/Cours/'.$item->id.'/edite')}}"  class="">
-                                    <button type="button" class="btn btn-light">edit</button>
-                                </a>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Edit
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form action="{{url ('/formateur/formations/cours/'.$item->id.'/update') }}" method="POST">
+                                            {{csrf_field()}}
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edite Course</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="training name" class="form-label">cour name</label>
+                                                        <input type="text" class="form-control" name="intitule" value="{{$item->intitule}}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="description" class="form-label">Description</label>
+                                                        <textarea type="text" class="form-control" name="description">{{$item->description}}</textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="training name" class="form-label">Period in hours </label>
+                                                        <input type="number" class="form-control" name='duree' value="{{$item->duree}}">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" value="save">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                                 <form action="{{url('/formateur/formations/cours/'.$item->id.'/delete')}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
