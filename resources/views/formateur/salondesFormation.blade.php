@@ -6,27 +6,18 @@
         </a>
     </div>
     <div class="text-center">
-        <h6 class="section-title bg-white mt-4 text-primary px-3">Training list</h6>
+        <h6 class="section-title bg-white mt-4 text-primary px-3">My Tutorials</h6>
     </div>
     <div class="container mb-3">
     <div class="row">
         @foreach ($formations as $item)
             <div class="col-sm-4">
-                <div class="card m-2">
-                    <div class="card-header bg-light text-center">
-                        <h5 class="card-title text-primary">{{$item->intitule}}</h5>
-                    </div>
+                <div class="card m-2 bg-light" style="border-radius: 30px 30px 30px 30px ;">
                     <div class="card-body">
-                        <small class="text-dark">descreption:</small>
-                        <p class="card-text text-center">{{$item->description}}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{('/formateur/formations/'.$item->id.'/view')}}" class="">
-                                <button type="button" class="btn btn-primary">detials</button>
-                            </a>
+                        <div class="d-grid gap-2 d-md-flex  mb-2" role="group" aria-label="Basic example">
+
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" style="border-radius: 30px 30px 30px 30px ;" data-bs-target="#exampleModal">
                                 edit
                             </button>
                             <!-- Modal -->
@@ -59,9 +50,20 @@
                             <form action="{{url('formateur/formations/'.$item->id.'/delete')}}" method="POST">
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-outline-danger" style="border-radius: 30px 30px 30px 30px;">Delete <i class="bi bi-trash-fill"></i></button>
                             </form>
                         </div>
+                        <div class="text-center">
+                            <h5 class="card-title text-primary">{{$item->intitule}}</h5>
+                        </div>
+                        <div class="card m-2 bg-light">
+                            <p class="card-text p-2">{{$item->description}}</p>
+                        </div>
+                        <a href="{{('/formateur/formations/'.$item->id.'/view')}}" class="">
+                            <div class="d-grid gap-1">
+                                <button type="button" class="btn btn-outline-primary" style="border-radius: 30px 30px 30px 30px;"><i class="bi bi-arrow-right"></i></button>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -71,4 +73,5 @@
             <a href="{{ route('formateur.Createformations') }}" class="btn btn-primary">New training</a>
         </form>
     </div>
+
 @endsection
