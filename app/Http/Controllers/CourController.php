@@ -22,6 +22,12 @@ class CourController extends Controller
 
         return view('courses',['cours'=>$cours]);
     }
+    public function homecours(){
+        $cours=new cour();
+        $cours= cour::all();
+
+        return view('welcome',['cours'=>$cours]);
+    }
     public function create($id){
 
         return view('formateur.Cours.Create',['id'=>$id]);

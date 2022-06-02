@@ -16,7 +16,6 @@
                         <form action="{{route('formateur.reclamationStore')}}" method="POST">
                             {{csrf_field()}}
                             <div class="mb-3">
-                                <label for="sujet" class="form-label">sujet</label>
                                 <textarea type="text" class="form-control" name="sujet">{{old('sujet')}}</textarea>
                             </div>
 

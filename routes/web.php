@@ -23,9 +23,8 @@ use App\Http\Controllers\ChapitreController;
 Route::get('/admin',function (){
     return view('admin.index');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CourController::class, 'homecours'])->name('homecours');
+
 Route::get('/about', function () {
     return view('about');
 });

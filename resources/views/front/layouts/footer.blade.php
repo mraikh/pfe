@@ -11,9 +11,8 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">K-academy</h4>
                 <a href="index.html"> <img src="img/logo.png" alt=""> </a>
-                <p>But when shot real her. Chamber her one visite removal six
-                    sending himself boys scot exquisite existend an </p>
-                <p>But when shot real her hamber her </p>
+                <p>Whether you want to learn or to share what you know, you’ve come to the right place. As a global destination for online learning, we connect people through knowledge. </p>
+                <p>Whatever your learning style, we have a course that fits. Coming from instructors all over the world, our courses cover just about anything you’d want to know.</p>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-white mb-3">Contact</h4>
