@@ -24,7 +24,7 @@
                                     @csrf
 
                                     <div class="col-12">
-                                        <label for="yourUsername" class="form-label">Name</label>
+                                        <label for="yourUsername" class="form-label">Full Name</label>
                                         <div class="input-group has-validation">
                                             <input type="text" name="name" class="form-control" required>
                                             <div class="invalid-feedback">Please enter your name.</div>
@@ -44,8 +44,8 @@
                                     <div class="col-12">
                                         <label for="role" class="form-label">role</label>
                                         <select x-model="role_id" type="password" name="role" class="form-select" id="role" required>
-                                            <option value="1" class="form-select-sm">Formateur</option>
-                                            <option value="2" class="form-select-sm">Apprenant</option>
+                                            <option value="1" class="form-select-sm">Teacher</option>
+                                            <option value="2" class="form-select-sm">Student</option>
                                         </select>
                                         <div class="invalid-feedback">Please select your role!</div>
                                     </div>

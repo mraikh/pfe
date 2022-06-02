@@ -17,11 +17,11 @@
                         <div class="d-grid gap-2 d-md-flex  mb-2" role="group" aria-label="Basic example">
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" style="border-radius: 30px 30px 30px 30px ;" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" style="border-radius: 30px 30px 30px 30px ;" data-bs-target="#exampleModal{{$item->id}}">
                                 edit
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form action="{{ ('/formateur/formations/'.$item->id.'/update') }}" method="POST">
                                         {{csrf_field()}}

@@ -21,8 +21,9 @@
                         </form>
                         <ul class="list-group">
                             <li class="list-group-item">reclamation:{{$item->sujet}}</li>
-                            <li class="list-group-item">admin answer:{{$item->rep_reclamation}}</li>
-
+                            @if ($item->rep_reclamation)
+                                <li class="list-group-item">admin answer:{{$item->rep_reclamation}}</li>
+                            @endif
                         </ul>
                          <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="{{('/formateur/reclamtions/'.$item->id.'/edit')}}" class="">
