@@ -23,10 +23,12 @@
         </div>
     </div>
 
+
+
 {{--cours--}}
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h6 class="section-title bg-white text-center text-primary px-3">Our courses</h6>
+            <h6 class="section-title bg-white text-center text-primary px-3">Our top courses</h6>
         </div>
         <div class="row g-4 justify-content-center">
             <?php $j=0;?>
@@ -49,6 +51,9 @@
                         </div>
                     </div>
                 </div>
+                <?php if ($j==3) {
+                        break;
+                    }?>
                 <?php if($j==9)$j=0;?>
             @endforeach
         </div>

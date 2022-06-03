@@ -6,11 +6,7 @@
         </a>
     </div>
     <div class="text-center">
-        <h6 class="section-title bg-white mt-4 text-primary px-3">Course List</h6>
-    </div>
-    <div class="container">
-        <h3>Training: {{$formation->intitule}}</h3>
-        <h5>{{$formation->description}}</h5>
+        <h6 class="section-title bg-white mt-4 text-primary px-3">{{$formation->intitule}} tutorial</h6>
     </div>
     <div class="container mb-3">
         <div class="row">
