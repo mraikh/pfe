@@ -9,7 +9,7 @@ use App\Http\Controllers\CourController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReclamtionController;
 use App\Http\Controllers\ChapitreController;
-
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,10 +29,8 @@ Route::get('/about', function () {
     return view('about');
 });
 Route::get('/courses', [CourController::class, 'cours'])->name('courses');
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::post('/contactsend', [ContactController::class, 'sendEmail'])->name('send');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
