@@ -18,7 +18,7 @@ return view('contact');
          'subject'=>$request->subject,
       'message'=>$request->message,
        ];
-       Mail::to('nouhan183@gmail.com')->send(new Contactmail($details));
+       Mail::to('nouhailaMraikh@gmail.com')->send(new Contactmail($details));
 return back()->with('message_sent','your message has been sent successfully');
 
 }

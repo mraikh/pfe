@@ -7,6 +7,12 @@
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
             <h1 class="mb-5">Contact For Any Query</h1>
+            <div>@if (Session::has('message_sent'))
+                <div class="alter alter-success">
+    {{Session::get('message_sent')}}
+                </div>
+
+                @endif</div>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -33,12 +39,7 @@
                     </div>
                 </div>
             </div>
-            @if (Session::has('message'))
-            <div class="alter alter-success">
-{{Session::get('message')}}
-            </div>
 
-            @endif
 
             <div class="col-lg-4 col-md-10 wow fadeInUp" data-wow-delay="0.5s">
                 <form action={{route('send')}}  method="POST">
