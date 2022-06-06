@@ -17,12 +17,16 @@
                         <h5 class="card-title">reclamation about:{{$item->sujet}}</h5>
                         <small>from the {{$item->User->Role->name}} {{$item->User->name}}</small>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text"  >admin respond: {{$item->rep_reclamation}}</p>
-                         <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <div class="card-body"> @if ($item->rep_reclamation)
+                        <p class="card-text"  ><h6 class="bg-white mt-4 text-primary ">your replay:</h6> {{$item->rep_reclamation}}</p>
+                        @endif
+
+                          <div class="btn-group" role="group" aria-label="Basic example">
+                            @if (!$item->rep_reclamation)
                              <a href="{{('reclamtions/'.$item->id.'/edit')}}" class="">
                                 <button type="button" class="btn btn-light">Respond</button>
-                             </a>
+                             </a> @endif
                              <form action="{{route('admin.destroyReclamtion')}}" method="post">
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}

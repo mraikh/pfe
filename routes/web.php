@@ -90,6 +90,7 @@ Route::get('/mesFormations', [ApprenantController::class, 'mesFormations'])->nam
     Route::delete('/reclamation/{id}/delete', [ReclamtionController::class, 'destroyapprenant'])->name('destroyReclamtion');
     Route::post('/reclamationUpdate', [ReclamtionController::class, 'updateapprenant'])->name('reclamationUpdate');
     Route::get('/reclamtions/{id}/edit', [ReclamtionController::class, 'editapprenant'])->name('editereclamtions');
+    Route::get('/download', [ChapitreController::class, 'download'])->name('download');
 });
 Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified', 'role:admin'])->group(function () {
 

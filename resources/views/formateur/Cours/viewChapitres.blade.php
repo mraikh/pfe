@@ -18,7 +18,7 @@
                     <div class="card m-2">
                         <div class="card-body">
                             <p class="card-text">{{$item->description}}</p>
-                            <a href="{{asset('storage/'.$item->file)}}"  class="">pdf chapitre</a>
+                            <a href="{{asset('storage/'.$item->file)}}"  class="">file</a>
 {{--                            add deltials edit and delete links--}}
                             <div class="btn-group" role="group" aria-label="Basic example">
 

@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 class ChapitreController extends Controller
-{
+{public function download(Request $request){
+    return response()->download($request->pathToFile);
+
+}
 
     public function create($id){
 

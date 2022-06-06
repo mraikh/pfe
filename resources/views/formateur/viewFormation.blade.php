@@ -28,7 +28,7 @@
                             </ul>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{('/formateur/formations/'.$item->id.'/view/Cour')}} " class="">
-                                    <button type="button" class="btn btn-primary">detials</button>
+                                    <button type="button" class="btn btn-primary">details</button>
                                 </a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$va->id}}">

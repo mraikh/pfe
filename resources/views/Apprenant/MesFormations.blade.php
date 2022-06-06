@@ -54,6 +54,11 @@
                                                                 <h5 class="card-title">part <?php $i++; echo $i;?></h5>
                                                                 <h6 class="card-subtitle mb-2 text-muted">description:{{$sva->description}}</h6>
                                                                 <a href="{{asset('storage/'.$sva->file)}}"  class="">file</a>
+                                                                <form action="{{route('download')}}" method="get">
+                                                                    @csrf
+                                                                    <input type="hidden" value="{{'storage/'.$sva->file}} "name="pathToFile">
+                                                                    <button type="submit" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 30px 30px 30px 30px;">download</button>
+                                                                </form>
                                                                 <form action="{{url('/apprenant/avancement')}}" method="POST">
                                                                     {{csrf_field()}}
                                                                     <input type="hidden" value="{{$sva->id}} "name="id">
