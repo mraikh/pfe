@@ -27,7 +27,30 @@
                         </ul>
                          <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="{{('/formateur/reclamtions/'.$item->id.'/edit')}}" class="">
-                                <button type="button" class="btn btn-light">edit</button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form action="{{('/formateur/reclamationUpdate/'.$item->id)}}" method="POST">
+                                            {{csrf_field()}}
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="text-primary">update reclamation</h3>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label for="sujet" class="form-label">sujet</label>
+                                                        <textarea type="text" class="form-control" name="sujet">{{old('sujet')}}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary" value="save">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>
