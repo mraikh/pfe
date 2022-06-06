@@ -12,17 +12,20 @@
         <div class="row">
             @foreach ($cours as $item)
                 <div class="col-sm-4 text-center">
-                    <div class="card m-2">
-                        <div class="card-header">
-                            <h5 class="card-title">{{$item->intitule}}</h5>
-                        </div>
+                    <div class="card m-2 bg-light" style="border-radius: 30px 30px 30px 30px ;">
+
                         <div class="card-body">
+                            <h5 class="section-title text-primary">{{$item->intitule}}</h5>
                             <p class="card-text">{{$item->description}}</p>
-             <?php $i=0;?>
-          @foreach ($item->chapitre as $va )
-               <?php $i++; echo "chapitre $i"?>
-                    <p class="card-text">{{$va->description}}</p>
-                    @endforeach
+                            <?php $i=0;?>
+                            <ul class="list-group">
+                                @foreach ($item->chapitre as $va )
+                                    <li class="list-group-item">
+                                        <?php $i++; echo "Part $i:"?>
+                                        {{$va->description}}
+                                    </li>
+                                @endforeach
+                            </ul>
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{('/formateur/formations/'.$item->id.'/view/Cour')}} " class="">
                                     <button type="button" class="btn btn-primary">detials</button>
@@ -69,6 +72,7 @@
                                      <button type="submit" class="btn btn-danger ">Delete</button>
                                 </form>
                             </div>
+
                         </div>
                         <div class="card-footer text-muted">
                             {{$item->duree}}h
@@ -81,4 +85,5 @@
             <a href="{{'/formateur/formations/Cours/create/'.$formation->id}}" class="btn btn-primary">New course</a>
         </form>
     </div>
+
 @endsection
