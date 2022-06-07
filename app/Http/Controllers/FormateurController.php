@@ -93,9 +93,9 @@ $formations=formation::where('formateur_id',Auth::user()->formateur->id)->get();
             if (empty($formateur)) {
                 abort(404, "Ce Formateur n'exist pas dans nos records");
             }
+            $formateur->user->delete();
             $formateur->delete();
 
-            $formateur->user->delete();
             return redirect('admin/fourmateurs');
 
         } catch (HttpException $e) {

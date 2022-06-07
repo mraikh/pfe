@@ -40,7 +40,7 @@ class CourController extends Controller
       $cour->description=$request->input('description');
       $cour->duree=$request->input('duree');
       $cour->save();
-      session()->flash('success','le cours et enregistre!!!!');
+      session()->flash('success','the Cour is saved!!!!');
            return redirect('formateur/formations/'.$id.'/view');}
 
      public function edit($id){
@@ -55,7 +55,7 @@ public function update(Request $request,$id){
            $cour->intitule=$request->input('intitule');
             $cour->description=$request->input('description');
             $cour->duree=$request->input('duree');
-         session()->flash('success','la modification est enregistre!!!!');
+         session()->flash('success','the change is saved!!!!');
      $cour->save();
    return redirect('formateur/formations/'.$cour->formation->id.'/view');}
 

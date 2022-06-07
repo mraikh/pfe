@@ -25,7 +25,7 @@ class ChapitreController extends Controller
         $chapitre->file=$request->file('photo')->store('image');
     }
       $chapitre->save();
-      session()->flash('success','le chapitres et enregistre!!!!');
+      session()->flash('success','part are register!!!!');
            return redirect('formateur/formations/'.$id.'/view/Cour');}
            public function edit($id){
             $chapitre=chapitre::find($id);
@@ -44,7 +44,7 @@ class ChapitreController extends Controller
       $chapitre->description=$request->input('description');
       if($request->hasFile('photo')){
         $chapitre->file=$request->file('photo')->store('image');}
-           session()->flash('success','la modification est enregistre!!!!');
+           session()->flash('success','the change is saved!!!!');
        $chapitre->save();
      return redirect('formateur/formations/'.$chapitre->cour->id.'/view/Cour');}
 }

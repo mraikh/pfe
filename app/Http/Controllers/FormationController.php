@@ -24,7 +24,7 @@ class FormationController extends Controller
       $formation->intitule=$request->input('intitule');
       $formation->description=$request->input('description');
       $formation->save();
-     session()->flash('success','le formation et enregistre!!!!');
+     session()->flash('success','the tutorial!!!!');
     return redirect('formateur/formations');}
     public function index(){
         $formations= formation::where('formateur_id',Auth::user()->formateur->id)->get();
@@ -39,7 +39,7 @@ class FormationController extends Controller
          $formation=formation::find($id);
         $formation->intitule=$request->input('intitule');
         $formation->description=$request->input('description');
-        session()->flash('success','la modification est enregistre!!!!');
+        session()->flash('success','the change is saved!!!!');
  $formation->save();
  return redirect('formateur/formations');
      }

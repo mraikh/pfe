@@ -23,7 +23,7 @@ class ReclamtionController extends Controller
               $reclamtion->user_id=Auth::user()->id;
               $reclamtion->sujet=$request->input('sujet');
               $reclamtion->save();
-             session()->flash('success','le reclamtion et enregistre!!!!');
+             session()->flash('success',' reclamtion is registered!!!!');
             return redirect('formateur/reclamation');}
             public function destroy(Request $request,$id){
                 $reclamation=reclamtion::find($id);
@@ -39,7 +39,7 @@ class ReclamtionController extends Controller
                 $reclamtion=reclamtion::find($id);
                       $reclamtion->sujet=$request->input('sujet');
                       $reclamtion->save();
-                     session()->flash('success','le reclamtion est modifiy!!!!');
+                     session()->flash('success',' reclamtion is modify!!!!');
                     return redirect('formateur/reclamation');}
                         ////// apprenant
 public function createapprenant(){
@@ -56,7 +56,7 @@ public function storeapprenant(Request $request){
           $reclamtion->user_id=Auth::user()->id;
           $reclamtion->sujet=$request->input('sujet');
           $reclamtion->save();
-         session()->flash('success','le reclamtion et enregistre!!!!');
+         session()->flash('success','reclamtion is saved!!!!');
         return redirect('apprenant/reclamation');}
 
         public function destroyapprenant(Request $request,$id){
@@ -72,7 +72,7 @@ public function storeapprenant(Request $request){
             $reclamtion=reclamtion::find($request->input('id'));
                   $reclamtion->sujet=$request->input('sujet');
                   $reclamtion->save();
-                 session()->flash('success','le reclamtion est modifiy!!!!');
+                 session()->flash('success',' reclamtion is modify!!!!');
                 return redirect('apprenant/reclamation');}
                 //////////////////////ADMIN
                 public function indexAdmin(){
@@ -91,7 +91,7 @@ public function storeapprenant(Request $request){
                     $reclamtion=reclamtion::find($request->input('id'));
                           $reclamtion->rep_reclamation=$request->input('rep_reclamation');
                           $reclamtion->save();
-                         session()->flash('success','le rponse est enregistre!!!!');
+                         session()->flash('success','reply is registered!!!!');
                         return redirect('admin/reclamation');}
 
             }

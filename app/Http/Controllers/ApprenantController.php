@@ -34,12 +34,14 @@ public function delete($id)
 
         $Apprenant = Apprenant::find($id);
 
+
         if (empty($Apprenant)) {
             abort(404, "Ce Apprenant n'exist pas dans nos records");
         }
+        $Apprenant->user->delete();
         $Apprenant->delete();
 
-        $Apprenant->user->delete();
+
         return redirect('admin/Apprenants');
 
     } catch (HttpException $e) {
@@ -82,7 +84,7 @@ public function inscription(Request $request){
         }
     }
            $inscription->save();
-          session()->flash('success','l`inscription est enregistre!!!!');
+          session()->flash('success',' registration is registered !!!!');
              return  redirect('/apprenant/mesFormations');
             }
     public function remove(Request $request)
