@@ -26,9 +26,8 @@
                             @endif
                         </ul>
                          <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{('/formateur/reclamtions/'.$item->id.'/edit')}}" class="">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">edit</button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -41,7 +40,7 @@
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label for="sujet" class="form-label">sujet</label>
-                                                        <textarea type="text" class="form-control" name="sujet">{{old('sujet')}}</textarea>
+                                                        <textarea type="text" class="form-control" name="sujet" required>{{old('sujet')}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -51,7 +50,6 @@
                                         </form>
                                     </div>
                                 </div>
-                            </a>
                         </div>
                     </div>
                 </div>

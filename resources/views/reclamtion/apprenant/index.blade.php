@@ -41,7 +41,7 @@
                                                 <input type="hidden" value="{{$item->id}} "name="id">
                                                 <div class="mb-3">
                                                     <label for="sujet" class="form-label">sujet</label>
-                                                    <textarea type="text" class="form-control" name="sujet" value="{{$item->sujet}}">{{$item->sujet}}</textarea>
+                                                    <textarea type="text" class="form-control" name="sujet" value="{{$item->sujet}}" required>{{$item->sujet}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
