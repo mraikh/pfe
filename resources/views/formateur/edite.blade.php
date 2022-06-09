@@ -5,13 +5,13 @@
         <div class="w-25 ">
             <div class="card bg-light">
                 <div class="card-header text-center">
-                    <h5>Edite training</h5>
+                    <h5>Edite tutorail</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ ('/formateur/formations/'.$formation->id.'/update') }}" method="POST">
                         {{csrf_field()}}
                         <div class="mb-3">
-                            <label for="training name" class="form-label">Training name</label>
+                            <label for="training name" class="form-label">tutorail name</label>
                             <input type="text" class="form-control" name="intitule" value="{{old('intitule')}}">
                         </div>
                         <div class="mb-3">

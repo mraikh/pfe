@@ -27,12 +27,12 @@
                                         {{csrf_field()}}
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Edite training</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Edite tutorail</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="training name" class="form-label">Training name</label>
+                                                    <label for="training name" class="form-label">tutorail name</label>
                                                     <input type="text" class="form-control" name="intitule" value="{{$item->intitule}}">
                                                 </div>
                                                 <div class="mb-3">
@@ -70,7 +70,7 @@
         @endforeach
     </div>
         <form method="get" action="{{ route('formateur.Createformations') }}">
-            <a href="{{ route('formateur.Createformations') }}" class="btn btn-primary">New training</a>
+            <a href="{{ route('formateur.Createformations') }}" class="btn btn-primary">New tutorail</a>
         </form>
     </div>
 

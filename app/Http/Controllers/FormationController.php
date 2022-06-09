@@ -24,7 +24,7 @@ class FormationController extends Controller
       $formation->intitule=$request->input('intitule');
       $formation->description=$request->input('description');
       $formation->save();
-     session()->flash('success','the tutorial!!!!');
+     session()->flash('success','the tutorial saved!!!!');
     return redirect('formateur/formations');}
     public function index(){
         $formations= formation::where('formateur_id',Auth::user()->formateur->id)->get();

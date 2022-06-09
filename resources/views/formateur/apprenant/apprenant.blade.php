@@ -7,7 +7,10 @@
     </div>
     <div class="container">
         @foreach ($formations as $iteam )
-            <div class="card mb-3">
+        @if ($iteam->inscription->count() )
+
+
+          <div class="card mb-3">
                 <div class="card-header">
                     <h3 class="text-center">{{$iteam->intitule}}</h3>
                 </div>
@@ -50,6 +53,7 @@
                     </table>
                 </div>
             </div>
-        @endforeach
+            @endif
+            @endforeach
     </div>
 @endsection

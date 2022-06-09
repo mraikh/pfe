@@ -19,12 +19,12 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Creat new training</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Creat new tutorail</h1>
                                     </div>
                                     <form action="{{ route('formateur.storeformations') }}" method="POST">
                                         {{csrf_field()}}
                                         <div class="mb-3">
-                                            <label for="training name" class="form-label">Training name</label>
+                                            <label for="training name" class="form-label">tutorail name</label>
                                             <input type="text" class="form-control" name="intitule" value="{{old('intitule')}}">
                                         </div>
                                         <div class="mb-3">
