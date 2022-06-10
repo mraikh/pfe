@@ -29,7 +29,7 @@
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">edit</button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <form action="{{('/formateur/reclamationUpdate/'.$item->id)}}" method="POST">
                                             {{csrf_field()}}
@@ -40,7 +40,7 @@
                                                 <div class="modal-body">
                                                     <div class="mb-3">
                                                         <label for="sujet" class="form-label">sujet</label>
-                                                        <textarea type="text" class="form-control" name="sujet" required>{{old('sujet')}}</textarea>
+                                                        <textarea type="text" class="form-control" name="sujet" required>{{$item->sujet}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">

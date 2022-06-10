@@ -27,9 +27,9 @@
                         </ul>
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">edit</button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form action="{{route('reclamationUpdate')}}" method="POST">
                                         {{csrf_field()}}

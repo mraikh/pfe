@@ -31,12 +31,12 @@
                                     <button type="button" class="btn btn-primary">details</button>
                                 </a>
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$va->id}}">
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal{{$item->id}}">
                                     Edit
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal{{$va->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <form action="{{url ('/formateur/formations/cours/'.$item->id.'/update') }}" method="POST">
                                             {{csrf_field()}}

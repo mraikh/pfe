@@ -74,7 +74,7 @@
         <!-- Modal -->
         <div class="modal fade" id="newparte" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form action="{{url('/formateur/formations/create/store/'.$cour->formation->id.'/chapitre')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/formateur/formations/create/store/'.$cour->id.'/chapitre')}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="modal-content">
                         <div class="modal-header">
